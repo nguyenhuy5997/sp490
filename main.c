@@ -206,7 +206,6 @@
 #define ErrorNumber_AinMeasError						14
 #define ErrorNumber_PinConfigError					15
 
-#define DEBUG_UART 1
 #define	WU_IT			 0			// wake up source is interval timer
 #define	WU_EXT		 1			// wake up source is PP2 (pull down)
 #define MAX_VOL_PWR_SUP				3300			
