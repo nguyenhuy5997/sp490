@@ -77,12 +77,13 @@ ARM Macro Assembler    Page 2
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=.\objects\startup_sp49.d -o.\objects\startup_sp49.o -I.\RTE\Devic
 e\SP49_B21 -I.\RTE\Device\SP49_B21\SP49.h -I.\RTE\Device\SP49_B21\system_SP49.h
- -I.\RTE\_Debug -IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\
-Core\Include -IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\RO
-MLib\B21\V1_8\Include -IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2
-\3.0.4\Device\B21\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISIO
-N_VERSION SETA 534" --predefine="_RTE_ SETA 1" --predefine="_RTE_ SETA 1" --lis
-t=.\listings\startup_sp49.lst RTE\Device\SP49_B21\startup_SP49.s
+ -I.\RTE\_Debug -IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5
+.7.0\CMSIS\Core\Include -IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Inf
+ineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include -IC:\Users\nguyenphuonglinh\AppData
+\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include --predefine="__MICRO
+LIB SETA 1" --predefine="__UVISION_VERSION SETA 534" --predefine="_RTE_ SETA 1"
+ --predefine="_RTE_ SETA 1" --list=.\listings\startup_sp49.lst RTE\Device\SP49_
+B21\startup_SP49.s
 
 
 

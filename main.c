@@ -206,17 +206,9 @@
 #define ErrorNumber_AinMeasError						14
 #define ErrorNumber_PinConfigError					15
 
-#define DEBUG_UART 0
-#if DEBUG_UART
-	#define Uart_SendDecimalUnsigned(a)	__NOP();
-	#define Uart_SendString(a)					__NOP();
-	#define Uart_SendHex32(a,b)						__NOP();
-	#define	Uart_SendHex16(a,b)						__NOP();
-	#define Uart_SendHex8(a,b)						__NOP();
-	#define Uart_SendDecimalSigned(a)		__NOP();
-
-#endif
-
+#define DEBUG_UART 1
+#define	WU_IT			 0			// wake up source is interval timer
+#define	WU_EXT		 1			// wake up source is PP2 (pull down)
 #define MAX_VOL_PWR_SUP				3300			
 /**********************************************************************************
  Global Variables
@@ -245,7 +237,7 @@ int main(void)
 	SensorValuePacked.TX_buf_b.FRAME_CNT = *frame_cnt;
 	SensorValuePacked.TX_buf_b.RFU = 0x00;
 	SensorValuePacked.TX_buf_b.END = 0x03;
-	printf("size: %d", sizeof(SensorValuePacked));
+	
 	// A wakeup from powerdown occured
 	if(Wakeup_Controller->DEVSTATUS_b.WUPDWN != 0)
 	{
@@ -317,41 +309,21 @@ int main(void)
 			if(status != 0)
 					ErrorHandling(ErrorNumber_CrystalNotStopped);
 			// Send start-message via Uart
-		//	Uart_SendString((uint8_t *)"Measurement results:\r\n");
+			printf("Measurement results:\r\n");
 			
 			// Measure, compensate and send temperature via Uart
-		//	MeasCompPrint_Temperature(&MeasResults, &SensorValuePacked);
+			MeasCompPrint_Temperature(&MeasResults, &SensorValuePacked);
 			
 			// Measure, compensate and send Pressue via Uart
-		//	MeasCompPrint_Pressure(&MeasResults, 1, &SensorValuePacked);
+			MeasCompPrint_Pressure(&MeasResults, 1, &SensorValuePacked);
 			
 			// Measure, compensate and send Acceleration via Uart
-			//MeasCompPrint_Acceleration(&MeasResults, 0, &SensorValuePacked);
-			uint16_t arr[5] = {0};
-			uint16_t val_t1 = 0;
-			uint16_t val_t2	= 0;
-			for(int i = 0; i < 5; i++)
-			{
-				status = Lib_Meas_Raw_Acceleration((uint32_t)(BITSIZE(Meas_RawAcceleration_NumSamples) | Meas_RawAcceleration_WBCCheckEnable | Meas_RawAcceleration_RDCheckEnable | Meas_RawAcceleration_CRCCheckEnable | MeasComp_Acceleration_Direction | MeasComp_Acceleration_Range), &MeasResults);
-				arr[i] = MeasResults.RAW_Value;
-				printf("raw: %d\r\n", MeasResults.RAW_Value);
-			}
-			val_t1 = (arr[0] + arr[1] + arr[2] + arr[3] + arr[4]) / 5;
-			printf("val_t1: %d\r\n", val_t1);
-			Delay1ms(500);
-			for(int i = 0; i < 5; i++)
-			{
-				status = Lib_Meas_Raw_Acceleration((uint32_t)(BITSIZE(Meas_RawAcceleration_NumSamples) | Meas_RawAcceleration_WBCCheckEnable | Meas_RawAcceleration_RDCheckEnable | Meas_RawAcceleration_CRCCheckEnable | MeasComp_Acceleration_Direction | MeasComp_Acceleration_Range), &MeasResults);
-				arr[i] = MeasResults.RAW_Value;
-				printf("raw: %d\r\n", MeasResults.RAW_Value);
-			}
-			val_t2 = (arr[0] + arr[1] + arr[2] + arr[3] + arr[4]) / 5;
-			printf("val_t2: %d\r\n", val_t2);
-			printf("degree: %d\r\n", (val_t2 - val_t1) * 9);
+			MeasCompPrint_Acceleration(&MeasResults, 1, &SensorValuePacked);
+
 			// Measure, compensate and send Voltage via Uart
-		//	MeasCompPrint_SupplyVoltage(&MeasResults, &SensorValuePacked);
+			MeasCompPrint_SupplyVoltage(&MeasResults, &SensorValuePacked);
 			
-			// Estimate frequency
+			// Estimate frequency rotation
 			//EarlyRollingMode_GenerateAPSTrial_SendRF(&MeasResults, 1);
 		}
 		// Wakeup by external
@@ -374,7 +346,7 @@ int main(void)
 			if(status != 0)
 					ErrorHandling(ErrorNumber_CrystalNotStopped);
 			// Send start-message via Uart
-			//Uart_SendString((uint8_t *)"Measurement results:\r\n");
+			printf("Measurement results:\r\n");
 			
 			// Measure, compensate and send temperature via Uart
 			MeasCompPrint_Temperature(&MeasResults, &SensorValuePacked);
@@ -389,7 +361,7 @@ int main(void)
 			MeasCompPrint_SupplyVoltage(&MeasResults, &SensorValuePacked);
 			
 			// Measure voltage at AIN (PP0 or PP3)
-			MeasCompPrint_AIN(&MeasResults, &SensorValuePacked);
+			//MeasCompPrint_AIN(&MeasResults, &SensorValuePacked);
 		}
 		// Wakeup by LPM-P -> Pressure outside thresholds
 		if(triggered_wakeup & Wakeup_Controller_DEVSTATUS_LPMP_FLAG_Msk)
@@ -450,20 +422,24 @@ int main(void)
 			status = Lib_Serv_Stop_Xtal_Osc();
 			if(status != 0)
 				ErrorHandling(ErrorNumber_CrystalNotStopped);
-			
+			#if WU_IT
 			// Set interval-timer to 1s
 			status = Lib_Calib_Precounter(100);											// Set TIMEBASE for 100ms
 			if(status != 0)
 				ErrorHandling(ErrorNumber_LibCalibPrecountFailed);
-			status = Lib_Serv_Init_Interval_Timer(0);								// Set postcounter to 9 -> 1s interval-timing
+			status = Lib_Serv_Init_Interval_Timer(9);								// Set postcounter to 9 -> 1s interval-timing
 			if(status != 0)
 				ErrorHandling(ErrorNumber_LibServInitITFailed);
+			#endif
+			//Enable wake up by external by poll PP2 to GND
+			#if WU_EXT
 			Wakeup_Controller->GPIO_b.PPIEN2 = 1;
 			Wakeup_Controller->GPIO_b.PPD2 = 1;
 			Wakeup_Controller->GPIO_b.PPO2 = 1;
 			Wakeup_Controller->GPIO_b.PPULL2 = 1;
 			Wakeup_Controller->DEVCTRL_b.EXT_MASK = 0;
 			Wakeup_Controller->DEVCTRL_b.WUP_PIN_SEL = 0;
+			#endif
 			Wakeup_Controller->DEVSTATUS = 0xFFFFFFFF;		// Write-clear all flags in DEVSTATUS				
 		}
 //		// Software reset
@@ -530,27 +506,28 @@ int main(void)
 	swapBytes(&SensorValuePacked.TX_buf_b.END, sizeof(SensorValuePacked.TX_buf_b.END));
 	uint8_t UartFrameEndcode[32];
 	uint8_t UartFrameDecode[16];
-//	printf("Raw frame: ");
-//	for(int i = 0; i < 16; i++)
-//	{
-//		printf("%02x ", SensorValuePacked.TX_buf[i]);
-//	}
-//	printf("\r\n");
-//	printf("Endcoded frame: ");
+	printf("Raw frame: ");
+	for(int i = 0; i < 16; i++)
+	{
+		printf("%02x", SensorValuePacked.TX_buf[i]);
+	}
+	printf("\r\n");
+	printf("Endcoded frame: ");
 	hamming_8_4_array_enc(SensorValuePacked.TX_buf, 16, UartFrameEndcode);
-//	for(int i = 0; i < 32; i++)
-//	{
-//		//printf("%02x ", UartFrameEndcode[i]);
-//		Uart_SendHex8(UartFrameEndcode[i], 0);
-//	}
-//	Uart_Putchar(0x61);
-//	printf("\r\n");
-//	printf("Decoded frame: ");
-//	hamming_8_4_array_dec(UartFrameEndcode, 32, UartFrameDecode);
-//		for(int i = 0; i < 16; i++)
-//	{
-//		printf("%02x ", UartFrameDecode[i]);
-//	}
+	
+	for(int i = 0; i < 32; i++)
+	{
+		//printf("%02x", UartFrameEndcode[i]);
+		Uart_SendHex8(UartFrameEndcode[i], 0);
+	}
+	printf("\r\n");
+	printf("Decoded frame: ");
+	hamming_8_4_array_dec(UartFrameEndcode, 32, UartFrameDecode);
+	for(int i = 0; i < 16; i++)
+	{
+		printf("%02x", UartFrameDecode[i]);
+	}
+	printf("\r\n");
 	Lib_State_Low_Power(COM_MISC_EXT_LP_PWD);
 }
 
@@ -563,16 +540,16 @@ void MeasCompPrint_Temperature(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* Se
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_TMeasCompError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Comp_Temp, status = ");
+		printf("     ->Error during Lib_Meas_Comp_Temp, status = ");
 		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("\r\n");
 	}
 	SensorValuePacked->TX_buf_b.TEMP = MeasResults->Comp_Value / 128;
-	Uart_SendString((uint8_t *)"    Temperature: ");
-	Uart_SendDecimalSigned(MeasResults->Comp_Value / 128);
-	Uart_SendString((uint8_t *)" degC, ");
-	Uart_SendHex16(MeasResults->Scaled_Temp_Value, UART_SENDHEX_PREFIX_ENABLED);
-	Uart_SendString((uint8_t *)" LSB (scaled Temp)\r\n");
+	printf("    Temperature: ");
+	printf("%d", MeasResults->Comp_Value / 128);
+	printf(" degC, ");
+	printf("%x", MeasResults->Scaled_Temp_Value);
+	printf(" LSB (scaled Temp)\r\n");
 }
 
 void MeasCompPrint_Pressure(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTempMeasFromExternal, VAL_FRAME_t* SensorValuePacked)
@@ -584,9 +561,9 @@ void MeasCompPrint_Pressure(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTempMea
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_PMeasError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Raw_Pressure, status = ");
-		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("     ->Error during Lib_Meas_Raw_Pressure, status = ");
+		printf("%x", status);
+		printf("\r\n");
 	}
 	if(UseTempMeasFromExternal)
 		status = Lib_Comp_Pressure((uint32_t)(Comp_Pressure_CRCCheckEnable | Comp_Pressure_DesiredPSet | COM_MEIF_EXT_CFG_TEMP_MEAS), MeasResults);	// temperature value from external
@@ -595,16 +572,16 @@ void MeasCompPrint_Pressure(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTempMea
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_PCompError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Comp_Pressure, status = ");
-		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("     ->Error during Lib_Comp_Pressure, status = ");
+		printf("%x", status);
+		printf("\r\n");
 	}
 	SensorValuePacked->TX_buf_b.PRES = MeasResults->Comp_Value / 16;
-	Uart_SendString((uint8_t *)"    Pressure: ");
-	Uart_SendDecimalSigned(MeasResults->Comp_Value / 16);
-	Uart_SendString((uint8_t *)" kPa, ");
-	Uart_SendHex16(MeasResults->RAW_Value, UART_SENDHEX_PREFIX_ENABLED);
-	Uart_SendString((uint8_t *)" LSB\r\n");
+	printf("    Pressure: ");
+	printf("%d", MeasResults->Comp_Value / 16);
+	printf(" kPa, ");
+	printf("%x", MeasResults->RAW_Value);
+	printf(" LSB\r\n");
 }
 
 void MeasCompPrint_Acceleration(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTempMeasFromExternal, VAL_FRAME_t* SensorValuePacked)
@@ -618,9 +595,9 @@ void MeasCompPrint_Acceleration(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTem
 		if(status != COM_MEIF_EXT_STAT_OK)
 		{
 			//ErrorHandling(ErrorNumber_TMeasCompError);
-			Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Comp_Temp, status = ");
-			Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-			Uart_Putchar('\r');
+			printf("     ->Error during Lib_Meas_Comp_Temp, status = ");
+			printf("%x", status);
+			printf("\r\n");
 		}
 	}
 	
@@ -629,9 +606,9 @@ void MeasCompPrint_Acceleration(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTem
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_AMeasError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Raw_Acceleration, status = ");
-		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("     ->Error during Lib_Meas_Raw_Acceleration, status = ");
+		printf("%x", status);
+		printf("\r\n");
 	}
 	else
 	{
@@ -640,26 +617,25 @@ void MeasCompPrint_Acceleration(Com_MEIF_Ext_Meas_t* MeasResults, uint8_t UseTem
 		if(status > COM_MEIF_EXT_ACC_AO_TEMP_ERR)
 		{
 			//ErrorHandling(ErrorNumber_AMeasError);
-			Uart_SendString((uint8_t*)"     ->Error during Lib_Comp_Auto_Acc_Offset, status = ");
-			Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-			Uart_Putchar('\r');
+			printf("     ->Error during Lib_Comp_Auto_Acc_Offset, status = ");
+			printf("%x", status);
+			printf("\r\n");
 		}
 	}
 	status = Lib_Comp_Acceleration((uint32_t)(Comp_Acceleration_CRCCheckEnable | MeasComp_Acceleration_Direction | MeasComp_Acceleration_Range | Comp_Acceleration_Offset_Source | COM_MEIF_EXT_CFG_TEMP_MEAS), Comp_Acceleration_Offset_Arg, MeasResults);	// temperature value from external
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_ACompError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Comp_Acceleration, status = ");
-		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("     ->Error during Lib_Comp_Acceleration, status = ");
+		printf("%x", status);
+		printf("\r\n");
 	}
 	SensorValuePacked->TX_buf_b.VEL = MeasResults->Comp_Value / 16;
-	Uart_SendString((uint8_t *)"    Acceleration: ");
-	Uart_SendDecimalSigned(MeasResults->Comp_Value / 16);
-	Uart_SendString((uint8_t *)" g, ");
-	//Uart_SendHex16(MeasResults->RAW_Value, UART_SENDHEX_PREFIX_ENABLED);
-	printf("%d", MeasResults->RAW_Value);
-	Uart_SendString((uint8_t *)" LSB\r");
+	printf("    Acceleration: ");
+	printf("%d", MeasResults->Comp_Value / 16);
+	printf(" g, ");
+	printf("%x", MeasResults->RAW_Value);
+	printf(" LSB\r\n");
 }
 
 void MeasCompPrint_SupplyVoltage(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* SensorValuePacked)
@@ -670,16 +646,16 @@ void MeasCompPrint_SupplyVoltage(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* 
 	if(status != COM_MEIF_EXT_STAT_OK)
 	{
 		//ErrorHandling(ErrorNumber_VMeasCompError);
-		Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Comp_SupplyV, status = ");
-		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("     ->Error during Lib_Meas_Comp_SupplyV, status = ");
+		printf("%x", status);
+		printf("\r\n");
 	}
 	SensorValuePacked->TX_buf_b.BAT = round((MeasResults->Comp_Value / 8) * 100 / MAX_VOL_PWR_SUP);
-	Uart_SendString((uint8_t *)"    Supply-Voltage: ");
-	Uart_SendDecimalSigned(MeasResults->Comp_Value / 8);
-	Uart_SendString((uint8_t *)" mV, ");
-	Uart_SendHex16(MeasResults->Scaled_Temp_Value, UART_SENDHEX_PREFIX_ENABLED);
-	Uart_SendString((uint8_t *)" LSB\r\n");
+	printf("    Supply-Voltage: ");
+	printf("%d", MeasResults->Comp_Value / 8);
+	printf(" mV, ");
+	printf("%x", MeasResults->Scaled_Temp_Value);
+	printf(" LSB\r\n");
 }
 
 void MeasCompPrint_AIN(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* SensorValuePacked)
@@ -702,7 +678,7 @@ void MeasCompPrint_AIN(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* SensorValu
 
 		Uart_SendString((uint8_t*)"     ->Error during Lib_Serv_Pin_Config, status = ");
 		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("\r\n");
 	}
 	status = Lib_Meas_Comp_Ain_Voltage((uint32_t)(MeasComp_AIN_CRCCheckEnable), MeasResults);
 	if(status != COM_MEIF_EXT_STAT_OK)
@@ -711,7 +687,7 @@ void MeasCompPrint_AIN(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* SensorValu
 		//Uart_Init(UART_CONFIG_REFCLK_HPRC, BR_19k2);
 		Uart_SendString((uint8_t*)"     ->Error during Lib_Meas_Comp_Ain_Voltage, status = ");
 		Uart_SendHex32(status, UART_SENDHEX_PREFIX_ENABLED);
-		Uart_Putchar('\r');
+		printf("\r\n");
 	}
 	Lib_Serv_Pin_Config(0, 0);			// EN = Disable
 	//Uart_Init(UART_CONFIG_REFCLK_HPRC, BR_19k2);

@@ -22,7 +22,7 @@
 #include "SP49.h"
 #include <stdio.h>
 #include "DevLib.h"
-
+#define UART_DEBUG 1
 static uint8_t Uart_Config_Loc;
 static uint8_t Uart_BRTimer_ReloadValue_Loc;
 static uint16_t Uart_TimeoutTimer_ReloadValue_Loc;
@@ -334,10 +334,12 @@ Return: int ch: the character which was sent out
 ***********************************************************************************/
 int fputc(int ch, FILE *f)
 {
-  Uart_Putchar(ch);
-  return(ch);
+#if UART_DEBUG
+#else
+		Uart_Putchar(ch);
+		return(ch);
+#endif
 }
-
 /**********************************************************************************
 Uart_SendString - Transmits a given string via Uart.
 
