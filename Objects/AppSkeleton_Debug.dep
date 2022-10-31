@@ -1,0 +1,89 @@
+Dependencies for Project 'AppSkeleton', Target 'Debug': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x635ECB62)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\RTE\Device\SP49_B21\SP49.h)(0x600A3C52)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F58EE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F58EE)
+I (.\RTE\Device\SP49_B21\system_SP49.h)(0x600A3456)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Fl_ext.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_ROM.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Math_ext.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_MEIF_ext.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Misc_ext.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Adv.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Calib.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Comp.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Comp_SM.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Diag.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Diag_SM.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Fl.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_LF.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Math.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Math_SM.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Meas.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Meas_SM.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_RF.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Serv.h)(0x60A213C6)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_State.h)(0x609DFEC2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_State_SM.h)(0x609DFEC2)
+I (DevLib.h)(0x5F87D28E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E4AD2)
+I (Hamming.h)(0x635E2275)
+I (Common.h)(0x635E4D6C)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E8E4AD2)
+F (.\DevLib.c)(0x635EAC6E)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\devlib.o --omf_browse .\objects\devlib.crf --depend .\objects\devlib.d)
+I (.\RTE\Device\SP49_B21\SP49.h)(0x600A3C52)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F58EE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F58EE)
+I (.\RTE\Device\SP49_B21\system_SP49.h)(0x600A3456)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E4AD2)
+I (DevLib.h)(0x5F87D28E)
+F (.\Hamming.c)(0x635E22AE)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\hamming.o --omf_browse .\objects\hamming.crf --depend .\objects\hamming.d)
+I (Hamming.h)(0x635E2275)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
+F (.\Hamming.h)(0x635E2275)()
+F (.\Common.h)(0x635E4D6C)()
+F (.\Common.c)(0x635E4D8B)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\common.o --omf_browse .\objects\common.crf --depend .\objects\common.d)
+I (Common.h)(0x635E4D6C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
+F (RTE\Device\SP49_B21\FlConfig.h)(0x5D104B5C)()
+F (RTE\Device\SP49_B21\SP49.h)(0x600A3C52)()
+F (RTE\Device\SP49_B21\startup_SP49.s)(0x5D0734AE)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_sp49.lst --xref -o .\objects\startup_sp49.o --depend .\objects\startup_sp49.d)
+F (RTE\Device\SP49_B21\system_SP49.c)(0x5F28D48E)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\system_sp49.o --omf_browse .\objects\system_sp49.crf --depend .\objects\system_sp49.d)
+I (.\RTE\Device\SP49_B21\SP49.h)(0x600A3C52)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F58EE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F58EE)
+I (C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F58EE)
+I (.\RTE\Device\SP49_B21\system_SP49.h)(0x600A3456)
+I (RTE\Device\SP49_B21\FlConfig.h)(0x5D104B5C)
+F (RTE\Device\SP49_B21\system_SP49.h)(0x600A3456)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Fl_ext.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_MEIF_ext.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Math_ext.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Com_Misc_ext.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Adv.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Calib.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Comp.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Comp_SM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Diag.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Diag_SM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Fl.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_LF.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Math.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Math_SM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Meas.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Meas_SM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_RF.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_ROM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_Serv.h)(0x60A213C6)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_State.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include\Lib_State_SM.h)(0x609DFEC2)()
+F (C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Source\SP49_Library.lib)(0x60A213C6)()

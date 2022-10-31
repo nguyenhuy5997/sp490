@@ -1,0 +1,9 @@
+.\objects\system_sp49.o: RTE\Device\SP49_B21\system_SP49.c
+.\objects\system_sp49.o: .\RTE\Device\SP49_B21\SP49.h
+.\objects\system_sp49.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h
+.\objects\system_sp49.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\system_sp49.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\system_sp49.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\system_sp49.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\system_sp49.o: .\RTE\Device\SP49_B21\system_SP49.h
+.\objects\system_sp49.o: RTE\Device\SP49_B21\FlConfig.h

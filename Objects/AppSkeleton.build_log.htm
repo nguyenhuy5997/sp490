@@ -1,0 +1,107 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.34.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: huy nguyen, viettel, LIC=BUURY-I2E1B-56SQ2-9ZZNP-1KVDV-WEB1Z
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.34.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.34.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.4.0
+Target DLL:      CMSIS_AGDI.dll V1.32.13.0
+Dialog DLL:      TARMCM1.DLL V1.14.3.0
+ 
+<h2>Project:</h2>
+C:\Users\admin\Desktop\TPMS prj\Workspace_SP4x\SampleSoftware\B21\00b_AppSkeleton\AppSkeleton.uvprojx
+Project File Date:  10/30/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Debug'
+compiling main.c...
+Hamming.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+Common.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* COMMON_H */
+main.c(532): warning:  #177-D: variable "UartFrameDecode"  was declared but never referenced
+  	uint8_t UartFrameDecode[16];
+main.c(838): warning:  #177-D: variable "DFT_PtA"  was declared but never referenced
+  				uint8_t DFT_PtA;
+main.c(756): warning:  #177-D: variable "status"  was declared but never referenced
+  		uint32_t status;
+main.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=6384 RO-data=48 RW-data=28 ZI-data=512  
+FromELF: creating hex file...
+After Build - User command #1: SP49_CRCAdderHex.exe C:\Users\admin\Desktop\TPMS prj\Workspace_SP4x\SampleSoftware\B21\00b_AppSkeleton\Objects\AppSkeleton.HEX -crc16 0x10001400 0x100017FC -crc16 0x10001800 0x100053FC -o  C:\Users\admin\Desktop\TPMS prj\Workspace_SP4x\SampleSoftware\B21\00b_AppSkeleton\Objects\AppSkeleton_withCRC.hex
+Error: Inputfile does not exist!
+".\Objects\AppSkeleton.axf" - 0 Error(s), 5 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Infineon
+                www.infineon.com/Infineon.SP49_B2.3.0.4.pack
+                Infineon.SP49_B2.3.0.4
+                SP49 TPMS sensor family pack
+   * Component: Startup Version: 1.0.0
+   * Component: ROMLib Version: 1.8.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\SP49_B21
+  .\RTE\Device\SP49_B21\SP49.h
+  .\RTE\Device\SP49_B21\system_SP49.h
+  .\RTE\_Debug
+  C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+  C:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Infineon::Device:Startup:1.0.0
+      Include file:  Device\B21\Source\Config\FlConfig.h
+      Source file:   Device\B21\Source\ARM\startup_SP49.s
+      Source file:   Device\B21\Source\system_SP49.c
+
+   * Component: Infineon::Library:ROMLib:1.8.0
+      Source file:   ROMLib\B21\V1_8\Include\Com_Math_ext.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Adv.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Fl.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_MEIF_ext.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Fl_ext.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Misc_ext.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Calib.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_LF.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Math.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_ROM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Math_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_State.h
+      Library file:  ROMLib\B21\V1_8\Source\SP49_Library.lib
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Serv.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_State_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_RF.h
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

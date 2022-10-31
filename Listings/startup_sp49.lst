@@ -1,0 +1,209 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;//-------- <<< Use Configuration Wizard in Context Menu
+                        >>> ------------------
+    2 00000000         ;*/
+    3 00000000         
+    4 00000000         
+    5 00000000         ; <h> Stack Configuration
+    6 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+    7 00000000         ; </h>
+    8 00000000         
+    9 00000000 00000200 
+                       Stack_Size
+                               EQU              0x00000200
+   10 00000000         
+   11 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   12 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   13 00000200         __initial_sp
+   14 00000200         
+   15 00000200         
+   16 00000200         ; <h> Heap Configuration
+   17 00000200         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   18 00000200         ; </h>
+   19 00000200         
+   20 00000200 00000000 
+                       Heap_Size
+                               EQU              0x00000000
+   21 00000200         
+   22 00000200                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+   23 00000000         __heap_base
+   24 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   25 00000000         __heap_limit
+   26 00000000         
+   27 00000000         
+   28 00000000                 PRESERVE8
+   29 00000000                 THUMB
+   30 00000000         
+   31 00000000         
+   32 00000000         ; Startup code
+   33 00000000                 AREA             RESET, CODE, READONLY
+   34 00000000         
+   35 00000000                 IMPORT           __main
+   36 00000000 4800            LDR              R0, =__main
+   37 00000002 4700            BX               R0
+   38 00000004         
+   39 00000004         
+   40 00000004                 ALIGN
+   41 00000004         
+   42 00000004         ; User Initial Stack & Heap
+   43 00000004         
+   44 00000004                 IF               :DEF:__MICROLIB
+   45 00000004         
+   46 00000004                 EXPORT           __initial_sp
+   47 00000004                 EXPORT           __heap_base
+   48 00000004                 EXPORT           __heap_limit
+   49 00000004         
+   50 00000004                 ELSE
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   64                          ENDIF
+   65 00000004         
+   66 00000004         
+   67 00000004                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
+work --depend=.\objects\startup_sp49.d -o.\objects\startup_sp49.o -I.\RTE\Devic
+e\SP49_B21 -I.\RTE\Device\SP49_B21\SP49.h -I.\RTE\Device\SP49_B21\system_SP49.h
+ -I.\RTE\_Debug -IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\
+Core\Include -IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\RO
+MLib\B21\V1_8\Include -IC:\Users\admin\AppData\Local\Arm\Packs\Infineon\SP49_B2
+\3.0.4\Device\B21\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISIO
+N_VERSION SETA 534" --predefine="_RTE_ SETA 1" --predefine="_RTE_ SETA 1" --lis
+t=.\listings\startup_sp49.lst RTE\Device\SP49_B21\startup_SP49.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 11 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 12 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 00000200
+
+Symbol: __initial_sp
+   Definitions
+      At line 13 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 46 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: __initial_sp used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 22 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 24 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 23 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 47 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: __heap_base used once
+__heap_limit 00000000
+
+Symbol: __heap_limit
+   Definitions
+      At line 25 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 48 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 33 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      None
+Comment: RESET unused
+1 symbol
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000000
+
+Symbol: Heap_Size
+   Definitions
+      At line 20 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 24 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: Heap_Size used once
+Stack_Size 00000200
+
+Symbol: Stack_Size
+   Definitions
+      At line 9 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 12 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: Stack_Size used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 35 in file RTE\Device\SP49_B21\startup_SP49.s
+   Uses
+      At line 36 in file RTE\Device\SP49_B21\startup_SP49.s
+Comment: __main used once
+1 symbol
+346 symbols in table
