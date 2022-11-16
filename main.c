@@ -206,8 +206,9 @@
 #define ErrorNumber_AinMeasError						14
 #define ErrorNumber_PinConfigError					15
 
-#define	WU_IT			 0			// wake up source is interval timer
-#define	WU_EXT		 1			// wake up source is PP2 (pull down)
+#define HEX_STR_FORMAT		0
+#define	WU_IT			 				0			// wake up source is interval timer
+#define	WU_EXT		 				1			// wake up source is PP2 (pull down)
 #define MAX_VOL_PWR_SUP				3300			
 /**********************************************************************************
  Global Variables
@@ -228,6 +229,8 @@ void EarlyRollingMode_GenerateAPSTrial_SendRF(Com_MEIF_Ext_Meas_t* MeasResults, 
 /**********************************************************************************
  Function Implementations
 ***********************************************************************************/
+volatile uint32_t triggered_wakeup_mask;
+volatile uint32_t triggered_wakeup;
 int main(void)
 {		
 	VAL_FRAME_t SensorValuePacked;
@@ -245,8 +248,8 @@ int main(void)
 		//			-All mask-bits from EXT_MASK (Bit 9) to CD_MASK (Bit0) --> invert and use Bits9 ... Bit0 (0x03FF) in DEVCTRL
 		//			-ITIM cannot be masked in normal mode --> OR with ITIM_MASK_Msk
 		//			-LPM-TRIGGER flags are only set, if their mask-bit in DEVCTRL is 0 --> No need to consider DEVCTRL.LPMx_MASK, just OR with DEVSTATUS.LPMx_FLAG_Msk
-		uint32_t triggered_wakeup_mask = ((~(Wakeup_Controller->DEVCTRL) & 0x03FF) | Wakeup_Controller_DEVCTRL_ITIM_MASK_Msk | Wakeup_Controller_DEVSTATUS_LPMP_FLAG_Msk | Wakeup_Controller_DEVSTATUS_LPMT_FLAG_Msk | Wakeup_Controller_DEVSTATUS_LPMA_FLAG_Msk);
-		uint32_t triggered_wakeup = (Wakeup_Controller->DEVSTATUS & (triggered_wakeup_mask));
+		triggered_wakeup_mask = ((~(Wakeup_Controller->DEVCTRL) & 0x03FF) | Wakeup_Controller_DEVCTRL_ITIM_MASK_Msk | Wakeup_Controller_DEVSTATUS_LPMP_FLAG_Msk | Wakeup_Controller_DEVSTATUS_LPMT_FLAG_Msk | Wakeup_Controller_DEVSTATUS_LPMA_FLAG_Msk);
+		triggered_wakeup = (Wakeup_Controller->DEVSTATUS & (triggered_wakeup_mask));
 		
 		// LF-Carrier was detected
 		if(triggered_wakeup & Wakeup_Controller_DEVSTATUS_CD_FLAG_Msk)
@@ -312,7 +315,7 @@ int main(void)
 			
 			// Measure, compensate and send temperature via Uart
 			MeasCompPrint_Temperature(&MeasResults, &SensorValuePacked);
-			
+
 			// Measure, compensate and send Pressue via Uart
 			MeasCompPrint_Pressure(&MeasResults, 1, &SensorValuePacked);
 			
@@ -435,7 +438,7 @@ int main(void)
 			Wakeup_Controller->GPIO_b.PPIEN2 = 1;
 			Wakeup_Controller->GPIO_b.PPD2 = 1;
 			Wakeup_Controller->GPIO_b.PPO2 = 1;
-			Wakeup_Controller->GPIO_b.PPULL2 = 1;
+			Wakeup_Controller->GPIO_b.PPULL2 = 0;
 			Wakeup_Controller->DEVCTRL_b.EXT_MASK = 0;
 			Wakeup_Controller->DEVCTRL_b.WUP_PIN_SEL = 0;
 			#endif
@@ -494,7 +497,7 @@ int main(void)
 			ErrorHandling(ErrorNumber_UnknownReset);
 		}	
 	}
-	// All wakeup- and reset-flags should be cleared here from branches above. Go to PDWN.
+
 	swapBytes(&SensorValuePacked.TX_buf_b.START, sizeof(SensorValuePacked.TX_buf_b.START));
 	swapBytes(&SensorValuePacked.TX_buf_b.FRAME_CNT, sizeof(SensorValuePacked.TX_buf_b.FRAME_CNT));
 	swapBytes(&SensorValuePacked.TX_buf_b.TEMP, sizeof(SensorValuePacked.TX_buf_b.TEMP));
@@ -516,10 +519,13 @@ int main(void)
 	
 	for(int i = 0; i < 32; i++)
 	{
-		//printf("%02x", UartFrameEndcode[i]);
+#if HEX_STR_FORMAT
 		Uart_SendHex8(UartFrameEndcode[i], 0);
+#else
+		Uart_Putchar(UartFrameEndcode[i]);
+#endif
 	}
-	printf("\r\n");
+	//Uart_SendString((uint8_t*)"\r\n");
 	printf("Decoded frame: ");
 	hamming_8_4_array_dec(UartFrameEndcode, 32, UartFrameDecode);
 	for(int i = 0; i < 16; i++)
@@ -527,6 +533,12 @@ int main(void)
 		printf("%02x", UartFrameDecode[i]);
 	}
 	printf("\r\n");
+	// All wakeup- and reset-flags should be cleared here from branches above. Go to PDWN.
+	while((Extended_Corelogic->P1IN & Extended_Corelogic_P1IN_PPI2_Msk) >> Extended_Corelogic_P1IN_PPI2_Pos == 0)
+	{
+		Corelogic->TIMERCFG01_b.WDRES = 1;
+	//	printf("loop");
+	}
 	Lib_State_Low_Power(COM_MISC_EXT_LP_PWD);
 }
 

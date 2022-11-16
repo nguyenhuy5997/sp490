@@ -58,7 +58,7 @@ Section Cross References
     main.o(i.main) refers to Lib_Diag_RC_Osc_Chk.o(Lib_Diag_RC_Osc_Chk_) for Lib_Diag_RC_Osc_Chk
     main.o(i.main) refers to common.o(i.swapBytes) for swapBytes
     main.o(i.main) refers to hamming.o(i.hamming_8_4_array_enc) for hamming_8_4_array_enc
-    main.o(i.main) refers to devlib.o(i.Uart_SendHex8) for Uart_SendHex8
+    main.o(i.main) refers to devlib.o(i.Uart_Putchar) for Uart_Putchar
     main.o(i.main) refers to hamming.o(i.hamming_8_4_array_dec) for hamming_8_4_array_dec
     main.o(i.main) refers to Lib_State_Low_Power.o(Lib_State_Low_Power_) for Lib_State_Low_Power
     main.o(i.main) refers to main.o(.data) for frame_cnt
@@ -377,6 +377,7 @@ Removing Unused input sections from the image.
     Removing devlib.o(i.Uart_SendDecimalSigned), (104 bytes).
     Removing devlib.o(i.Uart_SendDecimalUnsigned), (92 bytes).
     Removing devlib.o(i.Uart_SendHex16), (160 bytes).
+    Removing devlib.o(i.Uart_SendHex8), (96 bytes).
     Removing startup_sp49.o(HEAP), (0 bytes).
     Removing system_sp49.o(.rev16_text), (4 bytes).
     Removing system_sp49.o(.revsh_text), (4 bytes).
@@ -387,7 +388,7 @@ Removing Unused input sections from the image.
     Removing ddiv.o(.text), (240 bytes).
     Removing dfixul.o(.text), (64 bytes).
 
-20 unused section(s) (total 2452 bytes) removed from the image.
+21 unused section(s) (total 2548 bytes) removed from the image.
 
 ==============================================================================
 
@@ -397,38 +398,38 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -497,8 +498,8 @@ Image Symbol Table
     .text                                    0x10001890   Section        0  dfixui.o(.text)
     .text                                    0x100018cc   Section        0  uldiv.o(.text)
     .text                                    0x1000192c   Section        0  llushr.o(.text)
-    .text                                    0x1000194e   Section        0  depilogue.o(.text)
     .text                                    0x1000194e   Section        0  iusefp.o(.text)
+    .text                                    0x1000194e   Section        0  depilogue.o(.text)
     .text                                    0x10001a0c   Section        0  dadd.o(.text)
     .text                                    0x10001b74   Section        0  drnd.o(.text)
     .text                                    0x10001bf0   Section       40  cdcmple.o(.text)
@@ -525,36 +526,35 @@ Image Symbol Table
     i.Uart_Init                              0x10002374   Section        0  devlib.o(i.Uart_Init)
     i.Uart_Putchar                           0x10002478   Section        0  devlib.o(i.Uart_Putchar)
     i.Uart_SendHex32                         0x1000256c   Section        0  devlib.o(i.Uart_SendHex32)
-    i.Uart_SendHex8                          0x1000268c   Section        0  devlib.o(i.Uart_SendHex8)
-    i.Uart_SendString                        0x100026ec   Section        0  devlib.o(i.Uart_SendString)
-    i.__0printf$8                            0x10002710   Section        0  printf8.o(i.__0printf$8)
-    i.__ARM_clz                              0x10002730   Section        0  depilogue.o(i.__ARM_clz)
-    i.__ARM_common_switch8                   0x1000275e   Section        0  hamming.o(i.__ARM_common_switch8)
-    i._printf_core                           0x1000277c   Section        0  printf8.o(i._printf_core)
-    _printf_core                             0x1000277d   Thumb Code  1020  printf8.o(i._printf_core)
-    i._printf_post_padding                   0x10002ba4   Section        0  printf8.o(i._printf_post_padding)
-    _printf_post_padding                     0x10002ba5   Thumb Code    32  printf8.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x10002bc4   Section        0  printf8.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x10002bc5   Thumb Code    44  printf8.o(i._printf_pre_padding)
-    i.fputc                                  0x10002bf0   Section        0  devlib.o(i.fputc)
-    i.hamming_8_4_array_dec                  0x10002bf4   Section        0  hamming.o(i.hamming_8_4_array_dec)
-    i.hamming_8_4_array_enc                  0x10002c66   Section        0  hamming.o(i.hamming_8_4_array_enc)
-    i.hamming_8_4_dec                        0x10002cb0   Section        0  hamming.o(i.hamming_8_4_dec)
-    i.hamming_8_4_enc                        0x10002d4a   Section        0  hamming.o(i.hamming_8_4_enc)
-    i.inter_byte_xor                         0x10002db4   Section        0  hamming.o(i.inter_byte_xor)
-    i.main                                   0x10002dcc   Section        0  main.o(i.main)
-    i.round                                  0x100031fc   Section        0  round.o(i.round)
-    i.swapBytes                              0x10003298   Section        0  common.o(i.swapBytes)
+    i.Uart_SendString                        0x1000268c   Section        0  devlib.o(i.Uart_SendString)
+    i.__0printf$8                            0x100026b0   Section        0  printf8.o(i.__0printf$8)
+    i.__ARM_clz                              0x100026d0   Section        0  depilogue.o(i.__ARM_clz)
+    i.__ARM_common_switch8                   0x100026fe   Section        0  hamming.o(i.__ARM_common_switch8)
+    i._printf_core                           0x1000271c   Section        0  printf8.o(i._printf_core)
+    _printf_core                             0x1000271d   Thumb Code  1020  printf8.o(i._printf_core)
+    i._printf_post_padding                   0x10002b44   Section        0  printf8.o(i._printf_post_padding)
+    _printf_post_padding                     0x10002b45   Thumb Code    32  printf8.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x10002b64   Section        0  printf8.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x10002b65   Thumb Code    44  printf8.o(i._printf_pre_padding)
+    i.fputc                                  0x10002b90   Section        0  devlib.o(i.fputc)
+    i.hamming_8_4_array_dec                  0x10002b94   Section        0  hamming.o(i.hamming_8_4_array_dec)
+    i.hamming_8_4_array_enc                  0x10002c06   Section        0  hamming.o(i.hamming_8_4_array_enc)
+    i.hamming_8_4_dec                        0x10002c50   Section        0  hamming.o(i.hamming_8_4_dec)
+    i.hamming_8_4_enc                        0x10002cea   Section        0  hamming.o(i.hamming_8_4_enc)
+    i.inter_byte_xor                         0x10002d54   Section        0  hamming.o(i.inter_byte_xor)
+    i.main                                   0x10002d6c   Section        0  main.o(i.main)
+    i.round                                  0x100031dc   Section        0  round.o(i.round)
+    i.swapBytes                              0x10003278   Section        0  common.o(i.swapBytes)
     CODE_CRCLB                               0x100053fc   Section        4  system_sp49.o(CODE_CRCLB)
     __tagsym$$used                           0x100053fc   Number         0  system_sp49.o(CODE_CRCLB)
     STACK                                    0x20000000   Section      512  startup_sp49.o(STACK)
-    .data                                    0x20000200   Section        8  main.o(.data)
-    .data                                    0x20000208   Section        5  devlib.o(.data)
-    Uart_Config_Loc                          0x20000208   Data           1  devlib.o(.data)
-    Uart_BRTimer_ReloadValue_Loc             0x20000209   Data           1  devlib.o(.data)
-    Uart_TimeoutTimer_ReloadValue_Loc        0x2000020a   Data           2  devlib.o(.data)
-    Uart_BaudrateSel_Option_Loc              0x2000020c   Data           1  devlib.o(.data)
-    .data                                    0x20000210   Section        4  stdout.o(.data)
+    .data                                    0x20000200   Section       16  main.o(.data)
+    .data                                    0x20000210   Section        5  devlib.o(.data)
+    Uart_Config_Loc                          0x20000210   Data           1  devlib.o(.data)
+    Uart_BRTimer_ReloadValue_Loc             0x20000211   Data           1  devlib.o(.data)
+    Uart_TimeoutTimer_ReloadValue_Loc        0x20000212   Data           2  devlib.o(.data)
+    Uart_BaudrateSel_Option_Loc              0x20000214   Data           1  devlib.o(.data)
+    .data                                    0x20000218   Section        4  stdout.o(.data)
 
     Global Symbols
 
@@ -674,27 +674,28 @@ Image Symbol Table
     Uart_Init                                0x10002375   Thumb Code   234  devlib.o(i.Uart_Init)
     Uart_Putchar                             0x10002479   Thumb Code   224  devlib.o(i.Uart_Putchar)
     Uart_SendHex32                           0x1000256d   Thumb Code   282  devlib.o(i.Uart_SendHex32)
-    Uart_SendHex8                            0x1000268d   Thumb Code    92  devlib.o(i.Uart_SendHex8)
-    Uart_SendString                          0x100026ed   Thumb Code    36  devlib.o(i.Uart_SendString)
-    __0printf$8                              0x10002711   Thumb Code    24  printf8.o(i.__0printf$8)
-    __1printf$8                              0x10002711   Thumb Code     0  printf8.o(i.__0printf$8)
-    __2printf                                0x10002711   Thumb Code     0  printf8.o(i.__0printf$8)
-    __ARM_clz                                0x10002731   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __ARM_common_switch8                     0x1000275f   Thumb Code    28  hamming.o(i.__ARM_common_switch8)
-    fputc                                    0x10002bf1   Thumb Code     4  devlib.o(i.fputc)
-    hamming_8_4_array_dec                    0x10002bf5   Thumb Code   114  hamming.o(i.hamming_8_4_array_dec)
-    hamming_8_4_array_enc                    0x10002c67   Thumb Code    74  hamming.o(i.hamming_8_4_array_enc)
-    hamming_8_4_dec                          0x10002cb1   Thumb Code   154  hamming.o(i.hamming_8_4_dec)
-    hamming_8_4_enc                          0x10002d4b   Thumb Code   106  hamming.o(i.hamming_8_4_enc)
-    inter_byte_xor                           0x10002db5   Thumb Code    24  hamming.o(i.inter_byte_xor)
-    main                                     0x10002dcd   Thumb Code   982  main.o(i.main)
-    round                                    0x100031fd   Thumb Code   142  round.o(i.round)
-    swapBytes                                0x10003299   Thumb Code    42  common.o(i.swapBytes)
+    Uart_SendString                          0x1000268d   Thumb Code    36  devlib.o(i.Uart_SendString)
+    __0printf$8                              0x100026b1   Thumb Code    24  printf8.o(i.__0printf$8)
+    __1printf$8                              0x100026b1   Thumb Code     0  printf8.o(i.__0printf$8)
+    __2printf                                0x100026b1   Thumb Code     0  printf8.o(i.__0printf$8)
+    __ARM_clz                                0x100026d1   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __ARM_common_switch8                     0x100026ff   Thumb Code    28  hamming.o(i.__ARM_common_switch8)
+    fputc                                    0x10002b91   Thumb Code     4  devlib.o(i.fputc)
+    hamming_8_4_array_dec                    0x10002b95   Thumb Code   114  hamming.o(i.hamming_8_4_array_dec)
+    hamming_8_4_array_enc                    0x10002c07   Thumb Code    74  hamming.o(i.hamming_8_4_array_enc)
+    hamming_8_4_dec                          0x10002c51   Thumb Code   154  hamming.o(i.hamming_8_4_dec)
+    hamming_8_4_enc                          0x10002ceb   Thumb Code   106  hamming.o(i.hamming_8_4_enc)
+    inter_byte_xor                           0x10002d55   Thumb Code    24  hamming.o(i.inter_byte_xor)
+    main                                     0x10002d6d   Thumb Code  1134  main.o(i.main)
+    round                                    0x100031dd   Thumb Code   142  round.o(i.round)
+    swapBytes                                0x10003279   Thumb Code    42  common.o(i.swapBytes)
     CRCLockbyteCode                          0x100053fc   Data           4  system_sp49.o(CODE_CRCLB)
     APS_ExtrapolationAngle                   0x20000200   Data           2  main.o(.data)
     __initial_sp                             0x20000200   Data           0  startup_sp49.o(STACK)
     frame_cnt                                0x20000204   Data           4  main.o(.data)
-    __stdout                                 0x20000210   Data           4  stdout.o(.data)
+    triggered_wakeup_mask                    0x20000208   Data           4  main.o(.data)
+    triggered_wakeup                         0x2000020c   Data           4  main.o(.data)
+    __stdout                                 0x20000218   Data           4  stdout.o(.data)
 
 
 
@@ -758,9 +759,9 @@ Memory Map of the image
 
 
 
-  Load Region LR_FLASH_CODE (Base: 0x10001800, Size: 0x00001ad8, Max: 0x00003bfc, ABSOLUTE)
+  Load Region LR_FLASH_CODE (Base: 0x10001800, Size: 0x00001ac0, Max: 0x00003bfc, ABSOLUTE)
 
-    Execution Region FLASH_CODE (Exec base: 0x10001800, Load base: 0x10001800, Size: 0x00001ac4, Max: 0x00003bfc, ABSOLUTE)
+    Execution Region FLASH_CODE (Exec base: 0x10001800, Load base: 0x10001800, Size: 0x00001aa4, Max: 0x00003bfc, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -802,44 +803,44 @@ Memory Map of the image
     0x10002374   0x10002374   0x00000104   Code   RO          172    i.Uart_Init         devlib.o
     0x10002478   0x10002478   0x000000f4   Code   RO          173    i.Uart_Putchar      devlib.o
     0x1000256c   0x1000256c   0x00000120   Code   RO          177    i.Uart_SendHex32    devlib.o
-    0x1000268c   0x1000268c   0x00000060   Code   RO          178    i.Uart_SendHex8     devlib.o
-    0x100026ec   0x100026ec   0x00000024   Code   RO          179    i.Uart_SendString   devlib.o
-    0x10002710   0x10002710   0x00000020   Code   RO          611    i.__0printf$8       mc_p.l(printf8.o)
-    0x10002730   0x10002730   0x0000002e   Code   RO          695    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x1000275e   0x1000275e   0x0000001c   Code   RO          292    i.__ARM_common_switch8  hamming.o
-    0x1000277a   0x1000277a   0x00000002   PAD
-    0x1000277c   0x1000277c   0x00000428   Code   RO          618    i._printf_core      mc_p.l(printf8.o)
-    0x10002ba4   0x10002ba4   0x00000020   Code   RO          619    i._printf_post_padding  mc_p.l(printf8.o)
-    0x10002bc4   0x10002bc4   0x0000002c   Code   RO          620    i._printf_pre_padding  mc_p.l(printf8.o)
-    0x10002bf0   0x10002bf0   0x00000004   Code   RO          180    i.fputc             devlib.o
-    0x10002bf4   0x10002bf4   0x00000072   Code   RO          259    i.hamming_8_4_array_dec  hamming.o
-    0x10002c66   0x10002c66   0x0000004a   Code   RO          260    i.hamming_8_4_array_enc  hamming.o
-    0x10002cb0   0x10002cb0   0x0000009a   Code   RO          261    i.hamming_8_4_dec   hamming.o
-    0x10002d4a   0x10002d4a   0x0000006a   Code   RO          262    i.hamming_8_4_enc   hamming.o
-    0x10002db4   0x10002db4   0x00000018   Code   RO          263    i.inter_byte_xor    hamming.o
-    0x10002dcc   0x10002dcc   0x00000430   Code   RO           10    i.main              main.o
-    0x100031fc   0x100031fc   0x0000009c   Code   RO          395    i.round             m_ps.l(round.o)
-    0x10003298   0x10003298   0x0000002a   Code   RO          297    i.swapBytes         common.o
+    0x1000268c   0x1000268c   0x00000024   Code   RO          179    i.Uart_SendString   devlib.o
+    0x100026b0   0x100026b0   0x00000020   Code   RO          611    i.__0printf$8       mc_p.l(printf8.o)
+    0x100026d0   0x100026d0   0x0000002e   Code   RO          695    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x100026fe   0x100026fe   0x0000001c   Code   RO          292    i.__ARM_common_switch8  hamming.o
+    0x1000271a   0x1000271a   0x00000002   PAD
+    0x1000271c   0x1000271c   0x00000428   Code   RO          618    i._printf_core      mc_p.l(printf8.o)
+    0x10002b44   0x10002b44   0x00000020   Code   RO          619    i._printf_post_padding  mc_p.l(printf8.o)
+    0x10002b64   0x10002b64   0x0000002c   Code   RO          620    i._printf_pre_padding  mc_p.l(printf8.o)
+    0x10002b90   0x10002b90   0x00000004   Code   RO          180    i.fputc             devlib.o
+    0x10002b94   0x10002b94   0x00000072   Code   RO          259    i.hamming_8_4_array_dec  hamming.o
+    0x10002c06   0x10002c06   0x0000004a   Code   RO          260    i.hamming_8_4_array_enc  hamming.o
+    0x10002c50   0x10002c50   0x0000009a   Code   RO          261    i.hamming_8_4_dec   hamming.o
+    0x10002cea   0x10002cea   0x0000006a   Code   RO          262    i.hamming_8_4_enc   hamming.o
+    0x10002d54   0x10002d54   0x00000018   Code   RO          263    i.inter_byte_xor    hamming.o
+    0x10002d6c   0x10002d6c   0x0000046e   Code   RO           10    i.main              main.o
+    0x100031da   0x100031da   0x00000002   PAD
+    0x100031dc   0x100031dc   0x0000009c   Code   RO          395    i.round             m_ps.l(round.o)
+    0x10003278   0x10003278   0x0000002a   Code   RO          297    i.swapBytes         common.o
 
 
-    Execution Region RAM_STACK (Exec base: 0x20000000, Load base: 0x100032c4, Size: 0x00000200, Max: 0x00000200, ABSOLUTE, UNINIT)
+    Execution Region RAM_STACK (Exec base: 0x20000000, Load base: 0x100032a4, Size: 0x00000200, Max: 0x00000200, ABSOLUTE, UNINIT)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000200   Zero   RW          312    STACK               startup_sp49.o
 
 
-    Execution Region RAM_GLOB_VARS (Exec base: 0x20000200, Load base: 0x100032c4, Size: 0x00000014, Max: 0x00000200, ABSOLUTE, UNINIT)
+    Execution Region RAM_GLOB_VARS (Exec base: 0x20000200, Load base: 0x100032a4, Size: 0x0000001c, Max: 0x00000200, ABSOLUTE, UNINIT)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000200   0x100032c4   0x00000008   Data   RW           11    .data               main.o
-    0x20000208   0x100032cc   0x00000005   Data   RW          181    .data               devlib.o
-    0x2000020d   0x100032d1   0x00000003   PAD
-    0x20000210   0x100032d4   0x00000004   Data   RW          687    .data               mc_p.l(stdout.o)
+    0x20000200   0x100032a4   0x00000010   Data   RW           11    .data               main.o
+    0x20000210   0x100032b4   0x00000005   Data   RW          181    .data               devlib.o
+    0x20000215   0x100032b9   0x00000003   PAD
+    0x20000218   0x100032bc   0x00000004   Data   RW          687    .data               mc_p.l(stdout.o)
 
 
-    Execution Region RET_RAM_CUST (Exec base: 0x30000000, Load base: 0x100032d8, Size: 0x00000000, Max: 0x000000c0, ABSOLUTE, UNINIT)
+    Execution Region RET_RAM_CUST (Exec base: 0x30000000, Load base: 0x100032c0, Size: 0x00000000, Max: 0x000000c0, ABSOLUTE, UNINIT)
 
     **** No section assigned to this execution region ****
 
@@ -862,16 +863,16 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         42          0          0          0          0        904   common.o
-      1316         92          0          5          0       6732   devlib.o
+      1220         88          0          5          0       6052   devlib.o
        500         36          0          0          0       3785   hamming.o
-      2362        750          0          8          0      18666   main.o
+      2424        764          0         16          0      18729   main.o
          8          4          0          0        512        248   startup_sp49.o
          0          0         32          8          0       1079   system_sp49.o
 
     ----------------------------------------------------------------------
-      4234        882         48         24        512      31414   Object Totals
+      4202        892         48         32        512      30797   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-         6          0          0          3          0          0   (incl. Padding)
+         8          0          0          3          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -941,15 +942,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6952       1004         48         28        512      36326   Grand Totals
-      6952       1004         48         28        512      36326   ELF Image Totals
-      6952       1004         48         28          0          0   ROM Totals
+      6920       1014         48         36        512      35753   Grand Totals
+      6920       1014         48         36        512      35753   ELF Image Totals
+      6920       1014         48         36          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7000 (   6.84kB)
-    Total RW  Size (RW Data + ZI Data)               540 (   0.53kB)
-    Total ROM Size (Code + RO Data + RW Data)       7028 (   6.86kB)
+    Total RO  Size (Code + RO Data)                 6968 (   6.80kB)
+    Total RW  Size (RW Data + ZI Data)               548 (   0.54kB)
+    Total ROM Size (Code + RO Data + RW Data)       7004 (   6.84kB)
 
 ==============================================================================
 

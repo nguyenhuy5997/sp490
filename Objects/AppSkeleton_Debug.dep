@@ -1,6 +1,6 @@
 Dependencies for Project 'AppSkeleton', Target 'Debug': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x635F745A)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x637213A3)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\RTE\Device\SP49_B21\SP49.h)(0x635F65A3)
 I (C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0plus.h)(0x5E8EDF32)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
@@ -32,9 +32,9 @@ I (C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROML
 I (DevLib.h)(0x635F65A3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E4AD2)
 I (Hamming.h)(0x635F65A3)
-I (Common.h)(0x635F65A3)
+I (Common.h)(0x635F7AB9)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E8E4AD2)
-F (.\DevLib.c)(0x635F7337)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\devlib.o --omf_browse .\objects\devlib.crf --depend .\objects\devlib.d)
+F (.\DevLib.c)(0x63748812)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\devlib.o --omf_browse .\objects\devlib.crf --depend .\objects\devlib.d)
 I (.\RTE\Device\SP49_B21\SP49.h)(0x635F65A3)
 I (C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0plus.h)(0x5E8EDF32)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
@@ -48,9 +48,9 @@ F (.\Hamming.c)(0x635F65A3)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 
 I (Hamming.h)(0x635F65A3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
 F (.\Hamming.h)(0x635F65A3)()
-F (.\Common.h)(0x635F65A3)()
+F (.\Common.h)(0x635F7AB9)()
 F (.\Common.c)(0x635F65A3)(--c99 --gnu -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\SP49_B21-I.\RTE\Device\SP49_B21\SP49.h-I.\RTE\Device\SP49_B21\system_SP49.h-I.\RTE\_Debug-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include-IC:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Device\B21\Include-D__UVISION_VERSION="534" -D_RTE_ -D_RTE_-o .\objects\common.o --omf_browse .\objects\common.crf --depend .\objects\common.d)
-I (Common.h)(0x635F65A3)
+I (Common.h)(0x635F7AB9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E4AD2)
 F (RTE\Device\SP49_B21\FlConfig.h)(0x635F65A3)()
 F (RTE\Device\SP49_B21\SP49.h)(0x635F65A3)()
