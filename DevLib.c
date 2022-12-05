@@ -116,9 +116,9 @@ void Uart_Init(uint8_t Config, enum BaudrateSel_Options BaudrateSel_Option)
 {
 	// Configure Pins
 	Wakeup_Controller->GPIO_b.PPD0 = 1;	// PP0 is input
-	Wakeup_Controller->GPIO_b.PPD1 = 0;	// PP1 is output
+	Wakeup_Controller->GPIO_b.PPD3 = 0;	// PP1 is output
 	Wakeup_Controller->GPIO_b.PPO0 = 0;	// No pull-up resistor on PP0
-	Wakeup_Controller->GPIO_b.PPO1 = 1;	// Output high on PP1
+	Wakeup_Controller->GPIO_b.PPO3 = 1;	// Output high on PP1
 	
 	// Save Config and set correct timer-value for chosen baudrate
 	Uart_Config_Loc = Config;
@@ -278,12 +278,12 @@ uint8_t Uart_Putchar(uint8_t Byte)
 	
 	// Save GPIO-value
 	uint32_t GPIO_value = Wakeup_Controller->GPIO;
-	uint32_t GPIO_value_PP1_Low = GPIO_value & ~(Wakeup_Controller_GPIO_PPO1_Msk);
-	uint32_t GPIO_value_PP1_High = GPIO_value | Wakeup_Controller_GPIO_PPO1_Msk;
+	uint32_t GPIO_value_PP3_Low = GPIO_value & ~(Wakeup_Controller_GPIO_PPO3_Msk);
+	uint32_t GPIO_value_PP3_High = GPIO_value | Wakeup_Controller_GPIO_PPO3_Msk;
 	
 	// START Bit
 	System_Controller->RESUMEMASK = ~(System_Controller_RESUMEMASK_RET0M_Msk | System_Controller_RESUMEMASK_RET1M_Msk);	// Enable resume from timers
-	Wakeup_Controller->GPIO = GPIO_value_PP1_Low; // Set Tx-Pin to 0
+	Wakeup_Controller->GPIO = GPIO_value_PP3_Low; // Set Tx-Pin to 0
 	Corelogic->TIMERCFG01_b.T1RUN = 1;			// Start Timer1 (Timeout-timer)
 	Corelogic->TIMERCFG01_b.T0RUN = 1;			// Start Timer0 (Baudrate-timer)
 	System_Controller->RESUMEFLAGS = 0x0F;	// Write-clear all resume-flags
@@ -295,9 +295,9 @@ uint8_t Uart_Putchar(uint8_t Byte)
 	for(uint8_t i = 8; i > 0; i--)
 	{
 		if(Byte & 0x01)
-			Wakeup_Controller->GPIO = GPIO_value_PP1_High;	// Set Tx-Pin to 1
+			Wakeup_Controller->GPIO = GPIO_value_PP3_High;	// Set Tx-Pin to 1
 		else
-			Wakeup_Controller->GPIO = GPIO_value_PP1_Low;		// Set Tx-Pin to 0
+			Wakeup_Controller->GPIO = GPIO_value_PP3_Low;		// Set Tx-Pin to 0
 		Byte >>= 1;															// Shift Result one bit left to prepare next bit
 		System_Controller->RESUMEFLAGS = 0x0F;	// Write-clear all resume-flags
 		Corelogic->COLFLAGS = (Corelogic_COLFLAGS_T0FULL_Msk);	// Write-clear T0FULL flag
@@ -306,7 +306,7 @@ uint8_t Uart_Putchar(uint8_t Byte)
 	}
 	
 	// STOP Bit
-	Wakeup_Controller->GPIO = GPIO_value_PP1_High;		// Set Tx-Pin to 1
+	Wakeup_Controller->GPIO = GPIO_value_PP3_High;		// Set Tx-Pin to 1
 	System_Controller->RESUMEFLAGS = 0x0F;	// Write-clear all resume-flags
 	Corelogic->COLFLAGS = (Corelogic_COLFLAGS_T0FULL_Msk);	// Write-clear T0FULL flag
 	System_Controller->SYSCCTRL_b.IDLE = 1;	// Wait in IDLE until timer elapsed

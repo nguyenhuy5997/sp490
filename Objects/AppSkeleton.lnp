@@ -5,7 +5,7 @@
 ".\objects\common.o"
 ".\objects\startup_sp49.o"
 ".\objects\system_sp49.o"
-"C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Source\SP49_Library.lib"
+"..\..\..\..\..\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Source\SP49_Library.lib"
 --library_type=microlib --strict --scatter ".\ScatterFile.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.34.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: huy huy, viettel, LIC=D0D7S-LY3VU-GKEBG-VD5J6-IJFCX-KU6U9
+License Information: huy huy, huy, LIC=14HV2-93E0R-HLECL-0Y0Q6-X7RG4-BGRSF
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.34.0.0
@@ -21,24 +21,37 @@ Target DLL:      CMSIS_AGDI.dll V1.32.13.0
 Dialog DLL:      TARMCM1.DLL V1.14.3.0
  
 <h2>Project:</h2>
-C:\Infineon\workspace\sp490\AppSkeleton.uvprojx
-Project File Date:  10/31/2022
+C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\AppSkeleton.uvprojx
+Project File Date:  11/17/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Debug'
-After Build - User command #1: SP49_CRCAdderHex.exe C:\Infineon\workspace\sp490\Objects\AppSkeleton.HEX -crc16 0x10001400 0x100017FC -crc16 0x10001800 0x100053FC -o  C:\Infineon\workspace\sp490\Objects\AppSkeleton_withCRC.hex
-Output written to C:\Infineon\workspace\sp490\Objects\AppSkeleton_withCRC.hex.
+compiling main.c...
+Hamming.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+Common.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* COMMON_H */
+main.c(222): warning:  #1295-D: Deprecated declaration InitI2C - give arg types
+  void InitI2C();
+main.c(870): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=8620 RO-data=48 RW-data=28 ZI-data=516  
+FromELF: creating hex file...
+After Build - User command #1: SP49_CRCAdderHex.exe C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton.HEX -crc16 0x10001400 0x100017FC -crc16 0x10001800 0x100053FC -o  C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton_withCRC.hex
+Output written to C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton_withCRC.hex.
 Finished exeuction, exiting now.
-".\Objects\AppSkeleton.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\AppSkeleton.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
-                ARM.CMSIS.5.7.0
-                CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.4.0
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
 
 Package Vendor: Infineon
                 www.infineon.com/Infineon.SP49_B2.3.0.4.pack
@@ -52,12 +65,12 @@ Package Vendor: Infineon
   .\RTE\Device\SP49_B21\SP49.h
   .\RTE\Device\SP49_B21\system_SP49.h
   .\RTE\_Debug
-  C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  C:\Users\nguyenphuonglinh\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include
+  C:\Users\adminlocal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+  C:\Users\adminlocal\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.4.0
+   * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Infineon::Device:Startup:1.0.0
       Include file:  Device\B21\Source\Config\FlConfig.h
@@ -65,29 +78,29 @@ Package Vendor: Infineon
       Source file:   Device\B21\Source\system_SP49.c
 
    * Component: Infineon::Library:ROMLib:1.8.0
-      Source file:   ROMLib\B21\V1_8\Include\Com_Misc_ext.h
-      Source file:   ROMLib\B21\V1_8\Include\Com_Fl_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Com_Math_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Com_MEIF_ext.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Calib.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Math_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Misc_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Adv.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Fl.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Fl_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_RF.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_ROM.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_State_SM.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag_SM.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp_SM.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Serv.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag.h
-      Library file:  ROMLib\B21\V1_8\Source\SP49_Library.lib
       Source file:   ROMLib\B21\V1_8\Include\Lib_State.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Math.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_LF.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Meas.h
-Build Time Elapsed:  00:00:01
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_ROM.h
+      Library file:  ROMLib\B21\V1_8\Source\SP49_Library.lib
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Math.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Serv.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_State_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Calib.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Fl.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Math_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_LF.h
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>
