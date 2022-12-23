@@ -133,22 +133,22 @@
 // User configurable LPM-settings
 // -------------------------------
 // Configure (LPM-)timings here
-#define DesiredPeriod100ms_IntervalWakup	(2999)
-#define DesiredPeriod100ms_LPMPMeas				(119)
-#define DesiredPeriod100ms_LPMAMeas				(120)
-#define DesiredPeriod100ms_LPMTMeas				(121)
+#define DesiredPeriod100ms_IntervalWakup	(600)
+#define DesiredPeriod100ms_LPMPMeas				(1)
+#define DesiredPeriod100ms_LPMAMeas				(2)
+#define DesiredPeriod100ms_LPMTMeas				(3)
 
 // Configure LPM-priorities here
 #define DesiredPriority_LPMPMeas					(0)				// 0 = highest, 1 = medium, 2 = lowest priority. Each priority may only be defined once!
-#define DesiredPriority_LPMAMeas					(1)				// 0 = highest, 1 = medium, 2 = lowest priority. Each priority may only be defined once!
-#define DesiredPriority_LPMTMeas					(2)				// 0 = highest, 1 = medium, 2 = lowest priority. Each priority may only be defined once!
+#define DesiredPriority_LPMAMeas					(2)				// 0 = highest, 1 = medium, 2 = lowest priority. Each priority may only be defined once!
+#define DesiredPriority_LPMTMeas					(1)				// 0 = highest, 1 = medium, 2 = lowest priority. Each priority may only be defined once!
 
 #if (DesiredPriority_LPMPMeas == DesiredPriority_LPMAMeas) || (DesiredPriority_LPMPMeas == DesiredPriority_LPMTMeas) || (DesiredPriority_LPMAMeas == DesiredPriority_LPMTMeas)
 	#error "Each priority may only be defined once!"
 #endif
 
 // Configure thresholds here
-#define DesiredThresholdMethod_LPMPMeas		_ThresholdMethod_Absolute		// Choose here the threshold method for LPM-pressure (relative or absolute)
+#define DesiredThresholdMethod_LPMPMeas		_ThresholdMethod_Relative		// Choose here the threshold method for LPM-pressure (relative or absolute)
 #if (DesiredThresholdMethod_LPMPMeas == _ThresholdMethod_Relative)
 	#define DesiredThreshold_LPMPMeas_Positive		(5*2)		// In case of relative threshold, the threshold is relative to last measured pressure, in [LSB] (RAW-P makes ~2LSB/kPa). E.g.: Threshold = 5*2 --> ~5kPa relative to measured-pressure after reset
 	#define DesiredThreshold_LPMPMeas_Negative		(-5*2)		
@@ -158,18 +158,18 @@
 	#define DesiredThreshold_LPMPMeas_Negative		(95)		
 #endif
 
-#define DesiredThresholdMethod_LPMAMeas		_ThresholdMethod_Absolute		// Choose here the threshold method for LPM-acceleration (relative or absolute)
+#define DesiredThresholdMethod_LPMAMeas		_ThresholdMethod_Relative		// Choose here the threshold method for LPM-acceleration (relative or absolute)
 #if (DesiredThresholdMethod_LPMAMeas == _ThresholdMethod_Relative)
-	#define DesiredThreshold_LPMAMeas_Positive		(1*13)		// In case of relative threshold, the threshold is relative to last measured acceleration, in [LSB] (RAW-A makes ~13LSB/g). E.g.: Threshold = 2*13 --> ~2g relative to measured-acceleration after reset
-	#define DesiredThreshold_LPMAMeas_Negative		(-1*13)		
+	#define DesiredThreshold_LPMAMeas_Positive		(2*13)		// In case of relative threshold, the threshold is relative to last measured acceleration, in [LSB] (RAW-A makes ~13LSB/g). E.g.: Threshold = 2*13 --> ~2g relative to measured-acceleration after reset
+	#define DesiredThreshold_LPMAMeas_Negative		(-2*13)		
 #endif
 #if (DesiredThresholdMethod_LPMAMeas == _ThresholdMethod_Absolute)
 	#define DesiredThreshold_LPMAMeas_Positive		(1)		// In case of absolute threshold, the threshold here is in [g]
 	#define DesiredThreshold_LPMAMeas_Negative		(-1)		
 #endif
 
-#define DesiredThreshold_LPMTMeas_Positive		(1*128)		// The threshold for temperature is always in [LSB] relative to last measured temperature. RAW-T makes 128LSB/°C). E.g.: Threshold = 2*128 --> 2°C relative to last measured temperature
-#define DesiredThreshold_LPMTMeas_Negative		(-1*128)
+#define DesiredThreshold_LPMTMeas_Positive		(2*128)		// The threshold for temperature is always in [LSB] relative to last measured temperature. RAW-T makes 128LSB/°C). E.g.: Threshold = 2*128 --> 2°C relative to last measured temperature
+#define DesiredThreshold_LPMTMeas_Negative		(-2*128)
 // ---------------------
 // Error numbers
 // ---------------------
@@ -193,7 +193,7 @@
 #define HEX_STR_FORMAT		1
 #define	WU_IT			 				1			// wake up source is interval timer
 #define	WU_EXT		 				0			// wake up source is PP2 (pull down)
-#define MAX_VOL_PWR_SUP				3300			
+#define MAX_VOL_PWR_SUP				3000			
 
 #if 0
 #define		Uart_SendString(a)  __NOP
@@ -302,7 +302,7 @@ int main(void)
 					ErrorHandling(ErrorNumber_CrystalNotStopped);
 			// Send start-message via Uart
 //			printf("Measurement results:\r\n");
-			
+			printf("wakeup by timer\r\n");
 			// Measure, compensate and send temperature via Uart
 			MeasCompPrint_Temperature(&MeasResults, &SensorValuePacked);
 			if(Wakeup_Controller->DEVSTATUS_b.LPMT_FLAG)
@@ -415,7 +415,7 @@ int main(void)
 				Lib_Comp_Reverse_Acceleration((uint32_t)(Comp_Acceleration_CRCCheckEnable | MeasComp_Acceleration_Direction | MeasComp_Acceleration_Range | Comp_Acceleration_Offset_Source | COM_MEIF_EXT_CFG_TEMP_MEAS), 0, &MeasResults);	// temperature from external
 				HighLimit = MeasResults.RAW_Value;
 			#endif
-			Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
+			//Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
 			printf("Acceleration-thresholds adjusted:\r\n");	
 			printf("     LPMA-Low-Limit: 0x%x\r\n", LowLimit);
 			printf("     LPMA-High-Limit: 0x%x\r\n",HighLimit);
@@ -446,7 +446,7 @@ int main(void)
 			#if (DesiredThresholdMethod_LPMAMeas == _ThresholdMethod_Relative)
 				LowLimit = (MeasResults.RAW_Value + DesiredThreshold_LPMAMeas_Negative);
 				HighLimit = (MeasResults.RAW_Value + DesiredThreshold_LPMAMeas_Positive);
-				Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
+				//Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
 				Uart_SendString((uint8_t *)"    Acceleration-thresholds adjusted:\r\n");
 				Uart_SendString((uint8_t *)"     LPMA-Low-Limit: ");
 				Uart_SendHex16(LowLimit, UART_SENDHEX_PREFIX_ENABLED);
@@ -570,7 +570,7 @@ int main(void)
 				Lib_Comp_Reverse_Acceleration((uint32_t)(Comp_Acceleration_CRCCheckEnable | MeasComp_Acceleration_Direction | MeasComp_Acceleration_Range | Comp_Acceleration_Offset_Source | COM_MEIF_EXT_CFG_TEMP_MEAS), 0, &MeasResults);	// temperature from external
 				HighLimit = MeasResults.RAW_Value;
 			#endif
-			Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
+			//Lib_State_LPM_Config((uint16_t)((1 << LIB_STATE_LPM_CFG_SRC_POS) | (2 << LIB_STATE_LPM_CFG_PRIO_POS) | (4 << LIB_STATE_LPM_CFG_NRS_POS)), (uint16_t)DesiredPeriod100ms_LPMAMeas, (sint16_t)(HighLimit), (sint16_t)(LowLimit));
 			Uart_SendString((uint8_t *)"     LPMA-Low-Limit: ");
 			printf("     LPMA-Low-Limit: 0x%x\r\n", LowLimit);
 			printf("     LPMA-High-Limit: 0x%x\r\n",HighLimit);
@@ -781,6 +781,8 @@ void MeasCompPrint_SupplyVoltage(Com_MEIF_Ext_Meas_t* MeasResults, VAL_FRAME_t* 
 		printf("\r\n");
 	}
 	SensorValuePacked->TX_buf_b.BAT = round((MeasResults->Comp_Value / 8) * 100 / MAX_VOL_PWR_SUP);
+	if(SensorValuePacked->TX_buf_b.BAT > 100) SensorValuePacked->TX_buf_b.BAT = 100;
+	if(SensorValuePacked->TX_buf_b.BAT < 1) SensorValuePacked->TX_buf_b.BAT = 1;
 	printf("    Supply-Voltage: ");
 	printf("%d", MeasResults->Comp_Value / 8);
 	printf(" mV, ");
@@ -867,4 +869,10 @@ void InitI2C()
 	Wakeup_Controller->GPIO_b.PPULL1 = 1;
 	Wakeup_Controller->GPIO_b.PPIEN1 = 1;
 	Wakeup_Controller->DEVCTRL_b.I2CEN = 1;
+}
+void LPM_Measure_And_Config_Thres_Pressure(uint8_t Priority,  uint16_t Interval, sint16_t Thres_High, sint16_t Thres_Low)
+{
+	
+	Lib_State_LPM_Config((uint16_t)((0 << LIB_STATE_LPM_CFG_SRC_POS) | (Priority << LIB_STATE_LPM_CFG_PRIO_POS) | (1 << LIB_STATE_LPM_CFG_NRS_POS)), \
+																			(uint16_t)Interval, (sint16_t)(Thres_High), (sint16_t)(Thres_Low));	
 }

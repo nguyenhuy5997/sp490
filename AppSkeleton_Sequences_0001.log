@@ -1,0 +1,631 @@
+/*
+ *  CMSIS Pack Debug Access Sequence Log
+ *  File        : C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\AppSkeleton_Sequences_0001.log
+ *  Created     : 16:22:47 (13/12/2022)
+ *  Device      : SP49_B21
+ *  PDSC File   : C:\Users\adminlocal\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\Infineon.SP49_B2.pdsc
+ *
+ */
+
+[16:22:47.238]  **********  Sequence "ResetHardware"  (Context="Connect", Pname="", info="")
+[16:22:47.238]  
+[16:22:47.256]  <debugvars>
+[16:22:47.272]    // Pre-defined
+[16:22:47.289]    __protocol=0x00000002      (Protocol="SWD", SWJ-DP="False")
+[16:22:47.290]    __connection=0x00020201    (Connection Type="Debug", Reset Type="System Reset", Pre-Connect HW Reset)
+[16:22:47.291]    __dp=0x00000000
+[16:22:47.292]    __ap=0x00000000
+[16:22:47.292]    __traceout=0x00000000      (Trace Disabled)
+[16:22:47.293]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:22:47.293]    __FlashAddr=0x00000000
+[16:22:47.294]    __FlashLen=0x00000000
+[16:22:47.295]    __FlashArg=0x00000000
+[16:22:47.295]    __FlashOp=0x00000000
+[16:22:47.296]    __Result=0x00000000
+[16:22:47.296]  </debugvars>
+[16:22:47.297]  
+[16:22:47.298]  <sequence name="ResetHardware" Pname="" disable="false" info="">
+[16:22:47.299]    <block atomic="false" info="">
+[16:22:47.299]      __var nReset      = 0x80;
+[16:22:47.300]        // -> [nReset <= 0x00000080]
+[16:22:47.300]      DAP_SWJ_Pins(0x00, nReset, 0);
+[16:22:47.302]        // -> [DAP_SWJ_Pins(0x00, 0x80, 0) => 0xFF]   (Out: nRESET=0  =>  In: SWCLK/TCK=1, SWDIO/TMS=1, TDI=1, TDO=1, nTRST=1, nRESET=1)
+[16:22:47.302]    </block>
+[16:22:47.303]    <control if="" while="1" timeout="50000" info="">
+[16:22:47.303]      // while "1"  (timeout="50000")
+[16:22:47.304]      // while-condition  =>  TRUE
+[16:22:47.304]      // while "1"  (timeout="50000")
+[16:22:47.304]      // while-condition  =>  TRUE
+[16:22:47.305]      // while "1"  (timeout="50000")
+[16:22:47.305]      // while-condition  =>  TRUE
+[16:22:47.306]      // while "1"  (timeout="50000")
+[16:22:47.306]      // while-condition  =>  TRUE
+[16:22:47.307]      // while "1"  (timeout="50000")
+[16:22:47.307]      // while-condition  =>  TRUE
+[16:22:47.308]      // while "1"  (timeout="50000")
+[16:22:47.308]      // while-condition  =>  TRUE
+[16:22:47.309]      // while "1"  (timeout="50000")
+[16:22:47.309]      // while-condition  =>  TRUE
+[16:22:47.310]      // while "1"  (timeout="50000")
+[16:22:47.310]      // while-condition  =>  TRUE
+[16:22:47.310]      // while "1"  (timeout="50000")
+[16:22:47.311]      // while-condition  =>  TRUE
+[16:22:47.311]      // while "1"  (timeout="50000")
+[16:22:47.312]      // while-condition  =>  TRUE
+[16:22:47.312]      // while "1"  (timeout="50000")
+[16:22:47.313]      // while-condition  =>  TRUE
+[16:22:47.313]      // while "1"  (timeout="50000")
+[16:22:47.314]      // while-condition  =>  TRUE
+[16:22:47.314]      // while "1"  (timeout="50000")
+[16:22:47.315]      // while-condition  =>  TRUE
+[16:22:47.316]      // while "1"  (timeout="50000")
+[16:22:47.316]      // while-condition  =>  TRUE
+[16:22:47.317]      // while "1"  (timeout="50000")
+[16:22:47.317]      // while-condition  =>  TRUE
+[16:22:47.318]      // while "1"  (timeout="50000")
+[16:22:47.318]      // while-condition  =>  TRUE
+[16:22:47.319]      // while "1"  (timeout="50000")
+[16:22:47.319]      // while-condition  =>  TRUE
+[16:22:47.320]      // while "1"  (timeout="50000")
+[16:22:47.320]      // while-condition  =>  TRUE
+[16:22:47.321]      // while "1"  (timeout="50000")
+[16:22:47.321]      // while-condition  =>  TRUE
+[16:22:47.321]      // while "1"  (timeout="50000")
+[16:22:47.322]      // while-condition  =>  TRUE
+[16:22:47.322]      // while "1"  (timeout="50000")
+[16:22:47.323]      // while-condition  =>  TRUE
+[16:22:47.323]      // while "1"  (timeout="50000")
+[16:22:47.323]      // while-condition  =>  TRUE
+[16:22:47.324]      // while "1"  (timeout="50000")
+[16:22:47.324]      // while-condition  =>  TRUE
+[16:22:47.324]      // while "1"  (timeout="50000")
+[16:22:47.325]      // while-condition  =>  TRUE
+[16:22:47.325]      // while "1"  (timeout="50000")
+[16:22:47.325]      // while-condition  =>  TRUE
+[16:22:47.326]      // while "1"  (timeout="50000")
+[16:22:47.326]      // while-condition  =>  TRUE
+[16:22:47.327]      // while "1"  (timeout="50000")
+[16:22:47.327]      // while-condition  =>  TRUE
+[16:22:47.327]      // while "1"  (timeout="50000")
+[16:22:47.328]      // while-condition  =>  TRUE
+[16:22:47.328]      // while "1"  (timeout="50000")
+[16:22:47.328]      // while-condition  =>  TRUE
+[16:22:47.328]      // while "1"  (timeout="50000")
+[16:22:47.329]      // while-condition  =>  TRUE
+[16:22:47.329]      // while "1"  (timeout="50000")
+[16:22:47.329]      // while-condition  =>  TRUE
+[16:22:47.330]      // while "1"  (timeout="50000")
+[16:22:47.330]      // while-condition  =>  TRUE
+[16:22:47.330]      // while "1"  (timeout="50000")
+[16:22:47.330]      // while-condition  =>  TRUE
+[16:22:47.331]      // while "1"  (timeout="50000")
+[16:22:47.331]      // while-condition  =>  TRUE
+[16:22:47.331]      // while "1"  (timeout="50000")
+[16:22:47.332]      // while-condition  =>  TRUE
+[16:22:47.332]      // while "1"  (timeout="50000")
+[16:22:47.332]      // while-condition  =>  TRUE
+[16:22:47.332]      // while "1"  (timeout="50000")
+[16:22:47.333]      // while-condition  =>  TRUE
+[16:22:47.333]      // while "1"  (timeout="50000")
+[16:22:47.333]      // while-condition  =>  TRUE
+[16:22:47.333]      // while "1"  (timeout="50000")
+[16:22:47.334]      // while-condition  =>  TRUE
+[16:22:47.334]      // while "1"  (timeout="50000")
+[16:22:47.334]      // while-condition  =>  TRUE
+[16:22:47.334]      // while "1"  (timeout="50000")
+[16:22:47.334]      // while-condition  =>  TRUE
+[16:22:47.335]      // while "1"  (timeout="50000")
+[16:22:47.335]      // while-condition  =>  TRUE
+[16:22:47.335]      // while "1"  (timeout="50000")
+[16:22:47.335]      // while-condition  =>  TRUE
+[16:22:47.335]      // while "1"  (timeout="50000")
+[16:22:47.336]      // while-condition  =>  TRUE
+[16:22:47.336]      // while "1"  (timeout="50000")
+[16:22:47.337]      // while-condition  =>  TRUE
+[16:22:47.337]      // while "1"  (timeout="50000")
+[16:22:47.337]      // while-condition  =>  TRUE
+[16:22:47.337]      // while "1"  (timeout="50000")
+[16:22:47.338]      // while-condition  =>  TRUE
+[16:22:47.338]      // while "1"  (timeout="50000")
+[16:22:47.338]      // while-condition  =>  TRUE
+[16:22:47.338]      // while "1"  (timeout="50000")
+[16:22:47.338]      // while-condition  =>  TRUE
+[16:22:47.339]      // while "1"  (timeout="50000")
+[16:22:47.339]      // while-condition  =>  TRUE
+[16:22:47.339]      // while "1"  (timeout="50000")
+[16:22:47.339]      // while-condition  =>  TRUE
+[16:22:47.340]      // while "1"  (timeout="50000")
+[16:22:47.340]      // while-condition  =>  TRUE
+[16:22:47.340]      // while "1"  (timeout="50000")
+[16:22:47.340]      // while-condition  =>  TRUE
+[16:22:47.340]      // while "1"  (timeout="50000")
+[16:22:47.341]      // while-condition  =>  TRUE
+[16:22:47.341]      // while "1"  (timeout="50000")
+[16:22:47.341]      // while-condition  =>  TRUE
+[16:22:47.341]      // while "1"  (timeout="50000")
+[16:22:47.341]      // while-condition  =>  TRUE
+[16:22:47.341]      // while "1"  (timeout="50000")
+[16:22:47.341]      // while-condition  =>  TRUE
+[16:22:47.341]      // while "1"  (timeout="50000")
+[16:22:47.342]      // while-condition  =>  TRUE
+[16:22:47.342]      // while "1"  (timeout="50000")
+[16:22:47.342]      // while-condition  =>  TRUE
+[16:22:47.342]      // while "1"  (timeout="50000")
+[16:22:47.342]      // while-condition  =>  TRUE
+[16:22:47.342]      // while "1"  (timeout="50000")
+[16:22:47.343]      // while-condition  =>  TRUE
+[16:22:47.343]      // while "1"  (timeout="50000")
+[16:22:47.344]      // while-condition  =>  TRUE
+[16:22:47.344]      // while "1"  (timeout="50000")
+[16:22:47.344]      // while-condition  =>  TRUE
+[16:22:47.344]      // while "1"  (timeout="50000")
+[16:22:47.344]      // while-condition  =>  TRUE
+[16:22:47.345]      // while "1"  (timeout="50000")
+[16:22:47.345]      // while-condition  =>  TRUE
+[16:22:47.345]      // while "1"  (timeout="50000")
+[16:22:47.345]      // while-condition  =>  TRUE
+[16:22:47.346]      // while "1"  (timeout="50000")
+[16:22:47.346]      // while-condition  =>  TRUE
+[16:22:47.346]      // while "1"  (timeout="50000")
+[16:22:47.346]      // while-condition  =>  TRUE
+[16:22:47.346]      // while "1"  (timeout="50000")
+[16:22:47.346]      // while-condition  =>  TRUE
+[16:22:47.347]      // while "1"  (timeout="50000")
+[16:22:47.347]      // while-condition  =>  TRUE
+[16:22:47.347]      // while "1"  (timeout="50000")
+[16:22:47.347]      // while-condition  =>  TRUE
+[16:22:47.347]      // while "1"  (timeout="50000")
+[16:22:47.348]      // while-condition  =>  TRUE
+[16:22:47.348]      // while "1"  (timeout="50000")
+[16:22:47.348]      // while-condition  =>  TRUE
+[16:22:47.348]      // while "1"  (timeout="50000")
+[16:22:47.348]      // while-condition  =>  TRUE
+[16:22:47.349]      // while "1"  (timeout="50000")
+[16:22:47.349]      // while-condition  =>  TRUE
+[16:22:47.349]      // while "1"  (timeout="50000")
+[16:22:47.349]      // while-condition  =>  TRUE
+[16:22:47.349]      // while "1"  (timeout="50000")
+[16:22:47.350]      // while-condition  =>  TRUE
+[16:22:47.350]      // while "1"  (timeout="50000")
+[16:22:47.350]      // while-condition  =>  TRUE
+[16:22:47.350]      // while "1"  (timeout="50000")
+[16:22:47.350]      // while-condition  =>  TRUE
+[16:22:47.350]      // while "1"  (timeout="50000")
+[16:22:47.350]      // while-condition  =>  TRUE
+[16:22:47.350]      // while "1"  (timeout="50000")
+[16:22:47.350]      // while-condition  =>  TRUE
+[16:22:47.351]      // while "1"  (timeout="50000")
+[16:22:47.352]      // while-condition  =>  TRUE
+[16:22:47.352]      // while "1"  (timeout="50000")
+[16:22:47.352]      // while-condition  =>  TRUE
+[16:22:47.352]      // while "1"  (timeout="50000")
+[16:22:47.352]      // while-condition  =>  TRUE
+[16:22:47.352]      // while "1"  (timeout="50000")
+[16:22:47.353]      // while-condition  =>  TRUE
+[16:22:47.353]      // while "1"  (timeout="50000")
+[16:22:47.353]      // while-condition  =>  TRUE
+[16:22:47.353]      // while "1"  (timeout="50000")
+[16:22:47.353]      // while-condition  =>  TRUE
+[16:22:47.354]      // while "1"  (timeout="50000")
+[16:22:47.354]      // while-condition  =>  TRUE
+[16:22:47.354]      // while "1"  (timeout="50000")
+[16:22:47.354]      // while-condition  =>  TRUE
+[16:22:47.354]      // while "1"  (timeout="50000")
+[16:22:47.355]      // while-condition  =>  TRUE
+[16:22:47.355]      // while "1"  (timeout="50000")
+[16:22:47.355]      // while-condition  =>  TRUE
+[16:22:47.355]      // while "1"  (timeout="50000")
+[16:22:47.355]      // while-condition  =>  TRUE
+[16:22:47.356]      // while "1"  (timeout="50000")
+[16:22:47.356]      // while-condition  =>  TRUE
+[16:22:47.356]      // while "1"  (timeout="50000")
+[16:22:47.356]      // while-condition  =>  TRUE
+[16:22:47.356]      // while "1"  (timeout="50000")
+[16:22:47.357]      // while-condition  =>  TRUE
+[16:22:47.357]      // while "1"  (timeout="50000")
+[16:22:47.357]      // while-condition  =>  TRUE
+[16:22:47.357]      // while "1"  (timeout="50000")
+[16:22:47.357]      // while-condition  =>  TRUE
+[16:22:47.358]      // while "1"  (timeout="50000")
+[16:22:47.358]      // while-condition  =>  TRUE
+[16:22:47.358]      // while "1"  (timeout="50000")
+[16:22:47.358]      // while-condition  =>  TRUE
+[16:22:47.358]      // while "1"  (timeout="50000")
+[16:22:47.358]      // while-condition  =>  TRUE
+[16:22:47.359]      // while "1"  (timeout="50000")
+[16:22:47.359]      // while-condition  =>  TRUE
+[16:22:47.359]      // while "1"  (timeout="50000")
+[16:22:47.359]      // while-condition  =>  TRUE
+[16:22:47.359]      // while "1"  (timeout="50000")
+[16:22:47.360]      // while-condition  =>  TRUE
+[16:22:47.360]      // while "1"  (timeout="50000")
+[16:22:47.360]      // while-condition  =>  TRUE
+[16:22:47.360]      // while "1"  (timeout="50000")
+[16:22:47.360]      // while-condition  =>  TRUE
+[16:22:47.361]      // while "1"  (timeout="50000")
+[16:22:47.361]      // while-condition  =>  TRUE
+[16:22:47.361]      // while "1"  (timeout="50000")
+[16:22:47.361]      // while-condition  =>  TRUE
+[16:22:47.361]      // while "1"  (timeout="50000")
+[16:22:47.362]      // while-condition  =>  TRUE
+[16:22:47.362]      // while "1"  (timeout="50000")
+[16:22:47.362]      // while-condition  =>  TRUE
+[16:22:47.362]      // while "1"  (timeout="50000")
+[16:22:47.362]      // while-condition  =>  TRUE
+[16:22:47.363]      // while "1"  (timeout="50000")
+[16:22:47.363]      // while-condition  =>  TRUE
+[16:22:47.363]      // while "1"  (timeout="50000")
+[16:22:47.363]      // while-condition  =>  TRUE
+[16:22:47.363]      // while "1"  (timeout="50000")
+[16:22:47.364]      // while-condition  =>  TRUE
+[16:22:47.364]      // while "1"  (timeout="50000")
+[16:22:47.364]      // while-condition  =>  TRUE
+[16:22:47.364]      // while "1"  (timeout="50000")
+[16:22:47.364]      // while  =>  TIMEOUT
+[16:22:47.365]      // end while "1"
+[16:22:47.365]    </control>
+[16:22:47.365]    <block atomic="false" info="">
+[16:22:47.365]      DAP_SWJ_Pins(nReset, nReset, 0);
+[16:22:47.376]        // -> [DAP_SWJ_Pins(0x80, 0x80, 0) => 0xFF]   (Out: nRESET=1  =>  In: SWCLK/TCK=1, SWDIO/TMS=1, TDI=1, TDO=1, nTRST=1, nRESET=1)
+[16:22:47.376]    </block>
+[16:22:47.377]    <control if="" while="1" timeout="10000" info="">
+[16:22:47.378]      // while "1"  (timeout="10000")
+[16:22:47.378]      // while-condition  =>  TRUE
+[16:22:47.378]      // while "1"  (timeout="10000")
+[16:22:47.378]      // while-condition  =>  TRUE
+[16:22:47.379]      // while "1"  (timeout="10000")
+[16:22:47.380]      // while-condition  =>  TRUE
+[16:22:47.380]      // while "1"  (timeout="10000")
+[16:22:47.381]      // while  =>  TIMEOUT
+[16:22:47.381]      // end while "1"
+[16:22:47.381]    </control>
+[16:22:47.382]    <block atomic="true" info="">
+[16:22:47.384]      // ATOMIC SEQUENCE - EXECUTE
+[16:22:47.386]      DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // 50 cycles SWDIO/TMS High
+[16:22:47.386]        // -> [DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF)]
+[16:22:47.386]      DAP_SWJ_Sequence(3,  0x00);                // At least 3 idle cycles (SWDIO/TMS Low)
+[16:22:47.387]        // -> [DAP_SWJ_Sequence(3, 0x0000000000000000)]
+[16:22:47.388]      // ATOMIC SEQUENCE - DONE
+[16:22:47.388]    </block>
+[16:22:47.389]    <block atomic="false" info="">
+[16:22:47.389]      __errorcontrol = 0x00000001;
+[16:22:47.389]        // -> [__errorcontrol <= 0x00000001]  (Skip Errors="True")
+[16:22:47.389]      ReadDP(0x0);
+[16:22:47.392]        // -> [ReadDP(0x00000000) => 0x0BC11477]   (__dp=0x00000000)
+[16:22:47.393]      __errorcontrol = 0x00000000;
+[16:22:47.393]        // -> [__errorcontrol <= 0x00000000]  (Skip Errors="False")
+[16:22:47.394]    </block>
+[16:22:47.394]  </sequence>
+[16:22:47.395]  
+[16:22:47.395]  **********  Sequence "DebugPortSetup"  (Context="Connect", Pname="", info="")
+[16:22:47.395]  
+[16:22:47.396]  <debugvars>
+[16:22:47.396]    // Pre-defined
+[16:22:47.397]    __protocol=0x00000002      (Protocol="SWD", SWJ-DP="False")
+[16:22:47.397]    __connection=0x00000201    (Connection Type="Debug", Reset Type="System Reset")
+[16:22:47.398]    __dp=0x00000000
+[16:22:47.398]    __ap=0x00000000
+[16:22:47.399]    __traceout=0x00000000      (Trace Disabled)
+[16:22:47.399]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:22:47.400]    __FlashAddr=0x00000000
+[16:22:47.401]    __FlashLen=0x00000000
+[16:22:47.401]    __FlashArg=0x00000000
+[16:22:47.402]    __FlashOp=0x00000000
+[16:22:47.403]    __Result=0x00000000
+[16:22:47.403]  </debugvars>
+[16:22:47.404]  
+[16:22:47.404]  <sequence name="DebugPortSetup" Pname="" disable="false" info="">
+[16:22:47.405]  </sequence>
+[16:22:47.405]  
+[16:22:56.773]  **********  Sequence "ResetHardware"  (Context="Connect", Pname="", info="")
+[16:22:56.773]  
+[16:22:56.773]  <debugvars>
+[16:22:56.774]    // Pre-defined
+[16:22:56.774]    __protocol=0x00000002      (Protocol="SWD", SWJ-DP="False")
+[16:22:56.775]    __connection=0x00020201    (Connection Type="Debug", Reset Type="System Reset", Pre-Connect HW Reset)
+[16:22:56.776]    __dp=0x00000000
+[16:22:56.776]    __ap=0x00000000
+[16:22:56.777]    __traceout=0x00000000      (Trace Disabled)
+[16:22:56.778]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:22:56.778]    __FlashAddr=0x00000000
+[16:22:56.779]    __FlashLen=0x00000000
+[16:22:56.779]    __FlashArg=0x00000000
+[16:22:56.780]    __FlashOp=0x00000000
+[16:22:56.780]    __Result=0x00000000
+[16:22:56.781]  </debugvars>
+[16:22:56.782]  
+[16:22:56.783]  <sequence name="ResetHardware" Pname="" disable="false" info="">
+[16:22:56.783]    <block atomic="false" info="">
+[16:22:56.784]      __var nReset      = 0x80;
+[16:22:56.784]        // -> [nReset <= 0x00000080]
+[16:22:56.784]      DAP_SWJ_Pins(0x00, nReset, 0);
+[16:22:56.786]        // -> [DAP_SWJ_Pins(0x00, 0x80, 0) => 0xFF]   (Out: nRESET=0  =>  In: SWCLK/TCK=1, SWDIO/TMS=1, TDI=1, TDO=1, nTRST=1, nRESET=1)
+[16:22:56.787]    </block>
+[16:22:56.788]    <control if="" while="1" timeout="50000" info="">
+[16:22:56.788]      // while "1"  (timeout="50000")
+[16:22:56.789]      // while-condition  =>  TRUE
+[16:22:56.789]      // while "1"  (timeout="50000")
+[16:22:56.790]      // while-condition  =>  TRUE
+[16:22:56.790]      // while "1"  (timeout="50000")
+[16:22:56.791]      // while-condition  =>  TRUE
+[16:22:56.791]      // while "1"  (timeout="50000")
+[16:22:56.792]      // while-condition  =>  TRUE
+[16:22:56.793]      // while "1"  (timeout="50000")
+[16:22:56.793]      // while-condition  =>  TRUE
+[16:22:56.794]      // while "1"  (timeout="50000")
+[16:22:56.794]      // while-condition  =>  TRUE
+[16:22:56.795]      // while "1"  (timeout="50000")
+[16:22:56.795]      // while-condition  =>  TRUE
+[16:22:56.796]      // while "1"  (timeout="50000")
+[16:22:56.796]      // while-condition  =>  TRUE
+[16:22:56.797]      // while "1"  (timeout="50000")
+[16:22:56.798]      // while-condition  =>  TRUE
+[16:22:56.798]      // while "1"  (timeout="50000")
+[16:22:56.799]      // while-condition  =>  TRUE
+[16:22:56.799]      // while "1"  (timeout="50000")
+[16:22:56.799]      // while-condition  =>  TRUE
+[16:22:56.800]      // while "1"  (timeout="50000")
+[16:22:56.800]      // while-condition  =>  TRUE
+[16:22:56.800]      // while "1"  (timeout="50000")
+[16:22:56.801]      // while-condition  =>  TRUE
+[16:22:56.801]      // while "1"  (timeout="50000")
+[16:22:56.801]      // while-condition  =>  TRUE
+[16:22:56.802]      // while "1"  (timeout="50000")
+[16:22:56.802]      // while-condition  =>  TRUE
+[16:22:56.802]      // while "1"  (timeout="50000")
+[16:22:56.803]      // while-condition  =>  TRUE
+[16:22:56.803]      // while "1"  (timeout="50000")
+[16:22:56.803]      // while-condition  =>  TRUE
+[16:22:56.804]      // while "1"  (timeout="50000")
+[16:22:56.804]      // while-condition  =>  TRUE
+[16:22:56.805]      // while "1"  (timeout="50000")
+[16:22:56.806]      // while-condition  =>  TRUE
+[16:22:56.806]      // while "1"  (timeout="50000")
+[16:22:56.807]      // while-condition  =>  TRUE
+[16:22:56.807]      // while "1"  (timeout="50000")
+[16:22:56.808]      // while-condition  =>  TRUE
+[16:22:56.808]      // while "1"  (timeout="50000")
+[16:22:56.808]      // while-condition  =>  TRUE
+[16:22:56.808]      // while "1"  (timeout="50000")
+[16:22:56.809]      // while-condition  =>  TRUE
+[16:22:56.809]      // while "1"  (timeout="50000")
+[16:22:56.809]      // while-condition  =>  TRUE
+[16:22:56.810]      // while "1"  (timeout="50000")
+[16:22:56.810]      // while-condition  =>  TRUE
+[16:22:56.810]      // while "1"  (timeout="50000")
+[16:22:56.810]      // while-condition  =>  TRUE
+[16:22:56.810]      // while "1"  (timeout="50000")
+[16:22:56.810]      // while-condition  =>  TRUE
+[16:22:56.811]      // while "1"  (timeout="50000")
+[16:22:56.811]      // while-condition  =>  TRUE
+[16:22:56.811]      // while "1"  (timeout="50000")
+[16:22:56.811]      // while-condition  =>  TRUE
+[16:22:56.812]      // while "1"  (timeout="50000")
+[16:22:56.812]      // while-condition  =>  TRUE
+[16:22:56.812]      // while "1"  (timeout="50000")
+[16:22:56.812]      // while-condition  =>  TRUE
+[16:22:56.813]      // while "1"  (timeout="50000")
+[16:22:56.814]      // while-condition  =>  TRUE
+[16:22:56.814]      // while "1"  (timeout="50000")
+[16:22:56.814]      // while-condition  =>  TRUE
+[16:22:56.814]      // while "1"  (timeout="50000")
+[16:22:56.815]      // while-condition  =>  TRUE
+[16:22:56.815]      // while "1"  (timeout="50000")
+[16:22:56.815]      // while-condition  =>  TRUE
+[16:22:56.815]      // while "1"  (timeout="50000")
+[16:22:56.816]      // while-condition  =>  TRUE
+[16:22:56.816]      // while "1"  (timeout="50000")
+[16:22:56.816]      // while-condition  =>  TRUE
+[16:22:56.816]      // while "1"  (timeout="50000")
+[16:22:56.816]      // while-condition  =>  TRUE
+[16:22:56.816]      // while "1"  (timeout="50000")
+[16:22:56.817]      // while-condition  =>  TRUE
+[16:22:56.817]      // while "1"  (timeout="50000")
+[16:22:56.817]      // while-condition  =>  TRUE
+[16:22:56.817]      // while "1"  (timeout="50000")
+[16:22:56.817]      // while-condition  =>  TRUE
+[16:22:56.818]      // while "1"  (timeout="50000")
+[16:22:56.818]      // while-condition  =>  TRUE
+[16:22:56.818]      // while "1"  (timeout="50000")
+[16:22:56.819]      // while-condition  =>  TRUE
+[16:22:56.819]      // while "1"  (timeout="50000")
+[16:22:56.819]      // while-condition  =>  TRUE
+[16:22:56.819]      // while "1"  (timeout="50000")
+[16:22:56.819]      // while-condition  =>  TRUE
+[16:22:56.819]      // while "1"  (timeout="50000")
+[16:22:56.820]      // while-condition  =>  TRUE
+[16:22:56.820]      // while "1"  (timeout="50000")
+[16:22:56.820]      // while-condition  =>  TRUE
+[16:22:56.820]      // while "1"  (timeout="50000")
+[16:22:56.820]      // while-condition  =>  TRUE
+[16:22:56.821]      // while "1"  (timeout="50000")
+[16:22:56.821]      // while-condition  =>  TRUE
+[16:22:56.821]      // while "1"  (timeout="50000")
+[16:22:56.821]      // while-condition  =>  TRUE
+[16:22:56.821]      // while "1"  (timeout="50000")
+[16:22:56.822]      // while-condition  =>  TRUE
+[16:22:56.822]      // while "1"  (timeout="50000")
+[16:22:56.822]      // while-condition  =>  TRUE
+[16:22:56.822]      // while "1"  (timeout="50000")
+[16:22:56.822]      // while-condition  =>  TRUE
+[16:22:56.823]      // while "1"  (timeout="50000")
+[16:22:56.823]      // while-condition  =>  TRUE
+[16:22:56.823]      // while "1"  (timeout="50000")
+[16:22:56.823]      // while-condition  =>  TRUE
+[16:22:56.823]      // while "1"  (timeout="50000")
+[16:22:56.824]      // while-condition  =>  TRUE
+[16:22:56.824]      // while "1"  (timeout="50000")
+[16:22:56.824]      // while-condition  =>  TRUE
+[16:22:56.824]      // while "1"  (timeout="50000")
+[16:22:56.824]      // while-condition  =>  TRUE
+[16:22:56.825]      // while "1"  (timeout="50000")
+[16:22:56.825]      // while-condition  =>  TRUE
+[16:22:56.825]      // while "1"  (timeout="50000")
+[16:22:56.825]      // while-condition  =>  TRUE
+[16:22:56.826]      // while "1"  (timeout="50000")
+[16:22:56.826]      // while-condition  =>  TRUE
+[16:22:56.826]      // while "1"  (timeout="50000")
+[16:22:56.826]      // while-condition  =>  TRUE
+[16:22:56.826]      // while "1"  (timeout="50000")
+[16:22:56.827]      // while-condition  =>  TRUE
+[16:22:56.827]      // while "1"  (timeout="50000")
+[16:22:56.827]      // while-condition  =>  TRUE
+[16:22:56.827]      // while "1"  (timeout="50000")
+[16:22:56.827]      // while-condition  =>  TRUE
+[16:22:56.828]      // while "1"  (timeout="50000")
+[16:22:56.828]      // while-condition  =>  TRUE
+[16:22:56.828]      // while "1"  (timeout="50000")
+[16:22:56.828]      // while-condition  =>  TRUE
+[16:22:56.828]      // while "1"  (timeout="50000")
+[16:22:56.829]      // while-condition  =>  TRUE
+[16:22:56.829]      // while "1"  (timeout="50000")
+[16:22:56.829]      // while-condition  =>  TRUE
+[16:22:56.829]      // while "1"  (timeout="50000")
+[16:22:56.829]      // while-condition  =>  TRUE
+[16:22:56.830]      // while "1"  (timeout="50000")
+[16:22:56.830]      // while-condition  =>  TRUE
+[16:22:56.830]      // while "1"  (timeout="50000")
+[16:22:56.830]      // while-condition  =>  TRUE
+[16:22:56.830]      // while "1"  (timeout="50000")
+[16:22:56.830]      // while-condition  =>  TRUE
+[16:22:56.831]      // while "1"  (timeout="50000")
+[16:22:56.831]      // while-condition  =>  TRUE
+[16:22:56.831]      // while "1"  (timeout="50000")
+[16:22:56.831]      // while-condition  =>  TRUE
+[16:22:56.831]      // while "1"  (timeout="50000")
+[16:22:56.831]      // while-condition  =>  TRUE
+[16:22:56.831]      // while "1"  (timeout="50000")
+[16:22:56.831]      // while-condition  =>  TRUE
+[16:22:56.831]      // while "1"  (timeout="50000")
+[16:22:56.832]      // while-condition  =>  TRUE
+[16:22:56.832]      // while "1"  (timeout="50000")
+[16:22:56.832]      // while-condition  =>  TRUE
+[16:22:56.832]      // while "1"  (timeout="50000")
+[16:22:56.832]      // while-condition  =>  TRUE
+[16:22:56.833]      // while "1"  (timeout="50000")
+[16:22:56.833]      // while-condition  =>  TRUE
+[16:22:56.833]      // while "1"  (timeout="50000")
+[16:22:56.833]      // while-condition  =>  TRUE
+[16:22:56.833]      // while "1"  (timeout="50000")
+[16:22:56.834]      // while-condition  =>  TRUE
+[16:22:56.834]      // while "1"  (timeout="50000")
+[16:22:56.834]      // while-condition  =>  TRUE
+[16:22:56.834]      // while "1"  (timeout="50000")
+[16:22:56.834]      // while-condition  =>  TRUE
+[16:22:56.835]      // while "1"  (timeout="50000")
+[16:22:56.835]      // while-condition  =>  TRUE
+[16:22:56.835]      // while "1"  (timeout="50000")
+[16:22:56.835]      // while-condition  =>  TRUE
+[16:22:56.836]      // while "1"  (timeout="50000")
+[16:22:56.836]      // while-condition  =>  TRUE
+[16:22:56.836]      // while "1"  (timeout="50000")
+[16:22:56.836]      // while-condition  =>  TRUE
+[16:22:56.837]      // while "1"  (timeout="50000")
+[16:22:56.837]      // while-condition  =>  TRUE
+[16:22:56.838]      // while "1"  (timeout="50000")
+[16:22:56.838]      // while-condition  =>  TRUE
+[16:22:56.838]      // while "1"  (timeout="50000")
+[16:22:56.839]      // while-condition  =>  TRUE
+[16:22:56.839]      // while "1"  (timeout="50000")
+[16:22:56.839]      // while-condition  =>  TRUE
+[16:22:56.839]      // while "1"  (timeout="50000")
+[16:22:56.839]      // while-condition  =>  TRUE
+[16:22:56.840]      // while "1"  (timeout="50000")
+[16:22:56.840]      // while-condition  =>  TRUE
+[16:22:56.840]      // while "1"  (timeout="50000")
+[16:22:56.840]      // while-condition  =>  TRUE
+[16:22:56.841]      // while "1"  (timeout="50000")
+[16:22:56.841]      // while-condition  =>  TRUE
+[16:22:56.841]      // while "1"  (timeout="50000")
+[16:22:56.841]      // while-condition  =>  TRUE
+[16:22:56.841]      // while "1"  (timeout="50000")
+[16:22:56.842]      // while-condition  =>  TRUE
+[16:22:56.842]      // while "1"  (timeout="50000")
+[16:22:56.842]      // while-condition  =>  TRUE
+[16:22:56.842]      // while "1"  (timeout="50000")
+[16:22:56.842]      // while-condition  =>  TRUE
+[16:22:56.843]      // while "1"  (timeout="50000")
+[16:22:56.843]      // while-condition  =>  TRUE
+[16:22:56.843]      // while "1"  (timeout="50000")
+[16:22:56.843]      // while-condition  =>  TRUE
+[16:22:56.843]      // while "1"  (timeout="50000")
+[16:22:56.844]      // while-condition  =>  TRUE
+[16:22:56.844]      // while "1"  (timeout="50000")
+[16:22:56.844]      // while-condition  =>  TRUE
+[16:22:56.844]      // while "1"  (timeout="50000")
+[16:22:56.844]      // while-condition  =>  TRUE
+[16:22:56.845]      // while "1"  (timeout="50000")
+[16:22:56.845]      // while-condition  =>  TRUE
+[16:22:56.845]      // while "1"  (timeout="50000")
+[16:22:56.845]      // while-condition  =>  TRUE
+[16:22:56.845]      // while "1"  (timeout="50000")
+[16:22:56.846]      // while-condition  =>  TRUE
+[16:22:56.846]      // while "1"  (timeout="50000")
+[16:22:56.846]      // while-condition  =>  TRUE
+[16:22:56.846]      // while "1"  (timeout="50000")
+[16:22:56.846]      // while-condition  =>  TRUE
+[16:22:56.847]      // while "1"  (timeout="50000")
+[16:22:56.847]      // while-condition  =>  TRUE
+[16:22:56.847]      // while "1"  (timeout="50000")
+[16:22:56.847]      // while-condition  =>  TRUE
+[16:22:56.847]      // while "1"  (timeout="50000")
+[16:22:56.847]      // while-condition  =>  TRUE
+[16:22:56.847]      // while "1"  (timeout="50000")
+[16:22:56.847]      // while-condition  =>  TRUE
+[16:22:56.847]      // while "1"  (timeout="50000")
+[16:22:56.848]      // while-condition  =>  TRUE
+[16:22:56.848]      // while "1"  (timeout="50000")
+[16:22:56.848]      // while  =>  TIMEOUT
+[16:22:56.848]      // end while "1"
+[16:22:56.848]    </control>
+[16:22:56.849]    <block atomic="false" info="">
+[16:22:56.849]      DAP_SWJ_Pins(nReset, nReset, 0);
+[16:22:56.861]        // -> [DAP_SWJ_Pins(0x80, 0x80, 0) => 0xFF]   (Out: nRESET=1  =>  In: SWCLK/TCK=1, SWDIO/TMS=1, TDI=1, TDO=1, nTRST=1, nRESET=1)
+[16:22:56.861]    </block>
+[16:22:56.861]    <control if="" while="1" timeout="10000" info="">
+[16:22:56.862]      // while "1"  (timeout="10000")
+[16:22:56.863]      // while-condition  =>  TRUE
+[16:22:56.863]      // while "1"  (timeout="10000")
+[16:22:56.864]      // while-condition  =>  TRUE
+[16:22:56.864]      // while "1"  (timeout="10000")
+[16:22:56.865]      // while  =>  TIMEOUT
+[16:22:56.866]      // end while "1"
+[16:22:56.866]    </control>
+[16:22:56.867]    <block atomic="true" info="">
+[16:22:56.868]      // ATOMIC SEQUENCE - EXECUTE
+[16:22:56.869]      DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // 50 cycles SWDIO/TMS High
+[16:22:56.869]        // -> [DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF)]
+[16:22:56.870]      DAP_SWJ_Sequence(3,  0x00);                // At least 3 idle cycles (SWDIO/TMS Low)
+[16:22:56.870]        // -> [DAP_SWJ_Sequence(3, 0x0000000000000000)]
+[16:22:56.871]      // ATOMIC SEQUENCE - DONE
+[16:22:56.871]    </block>
+[16:22:56.872]    <block atomic="false" info="">
+[16:22:56.872]      __errorcontrol = 0x00000001;
+[16:22:56.873]        // -> [__errorcontrol <= 0x00000001]  (Skip Errors="True")
+[16:22:56.873]      ReadDP(0x0);
+[16:22:56.875]        // -> [ReadDP(0x00000000) => 0x0BC11477]   (__dp=0x00000000)
+[16:22:56.875]      __errorcontrol = 0x00000000;
+[16:22:56.875]        // -> [__errorcontrol <= 0x00000000]  (Skip Errors="False")
+[16:22:56.876]    </block>
+[16:22:56.876]  </sequence>
+[16:22:56.876]  
+[16:22:56.877]  **********  Sequence "DebugPortSetup"  (Context="Connect", Pname="", info="")
+[16:22:56.877]  
+[16:22:56.877]  <debugvars>
+[16:22:56.877]    // Pre-defined
+[16:22:56.878]    __protocol=0x00000002      (Protocol="SWD", SWJ-DP="False")
+[16:22:56.878]    __connection=0x00000201    (Connection Type="Debug", Reset Type="System Reset")
+[16:22:56.878]    __dp=0x00000000
+[16:22:56.878]    __ap=0x00000000
+[16:22:56.879]    __traceout=0x00000000      (Trace Disabled)
+[16:22:56.879]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:22:56.879]    __FlashAddr=0x00000000
+[16:22:56.879]    __FlashLen=0x00000000
+[16:22:56.879]    __FlashArg=0x00000000
+[16:22:56.880]    __FlashOp=0x00000000
+[16:22:56.880]    __Result=0x00000000
+[16:22:56.880]  </debugvars>
+[16:22:56.881]  
+[16:22:56.881]  <sequence name="DebugPortSetup" Pname="" disable="false" info="">
+[16:22:56.881]  </sequence>
+[16:22:56.882]  

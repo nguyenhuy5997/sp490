@@ -22,11 +22,27 @@ Dialog DLL:      TARMCM1.DLL V1.14.3.0
  
 <h2>Project:</h2>
 C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\AppSkeleton.uvprojx
-Project File Date:  12/19/2022
+Project File Date:  12/13/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Debug'
+Rebuild target 'Release'
+assembling startup_SP49.s...
+compiling Common.c...
+Common.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* COMMON_H */
+Common.c(12): warning:  #1-D: last line of file ends without a newline
+  }
+Common.c: 2 warnings, 0 errors
+compiling Hamming.c...
+Hamming.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+Hamming.c: 1 warning, 0 errors
+compiling system_SP49.c...
+compiling DevLib.c...
+DevLib.c(342): warning:  #940-D: missing return statement at end of non-void function "fputc" 
+  }
+DevLib.c: 1 warning, 0 errors
 compiling main.c...
 Hamming.h(29): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -34,16 +50,13 @@ Common.h(29): warning:  #1-D: last line of file ends without a newline
   #endif /* COMMON_H */
 main.c(222): warning:  #1295-D: Deprecated declaration InitI2C - give arg types
   void InitI2C();
-main.c(878): warning:  #1-D: last line of file ends without a newline
+main.c(872): warning:  #1-D: last line of file ends without a newline
   }
 main.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=8864 RO-data=48 RW-data=28 ZI-data=516  
+Program Size: Code=7908 RO-data=48 RW-data=28 ZI-data=516  
 FromELF: creating hex file...
-After Build - User command #1: SP49_CRCAdderHex.exe C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton.HEX -crc16 0x10001400 0x100017FC -crc16 0x10001800 0x100053FC -o  C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton_withCRC.hex
-Output written to C:\Users\adminlocal\Desktop\STS\Workspace\SP49\sp490_rep2\Objects\AppSkeleton_withCRC.hex.
-Finished exeuction, exiting now.
-".\Objects\AppSkeleton.axf" - 0 Error(s), 4 Warning(s).
+".\Objects\AppSkeleton_Release.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -64,7 +77,7 @@ Package Vendor: Infineon
   .\RTE\Device\SP49_B21
   .\RTE\Device\SP49_B21\SP49.h
   .\RTE\Device\SP49_B21\system_SP49.h
-  .\RTE\_Debug
+  .\RTE\_Release
   C:\Users\adminlocal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
   C:\Users\adminlocal\AppData\Local\Arm\Packs\Infineon\SP49_B2\3.0.4\ROMLib\B21\V1_8\Include
 
@@ -73,33 +86,33 @@ Package Vendor: Infineon
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Infineon::Device:Startup:1.0.0
-      Source file:   Device\B21\Source\system_SP49.c
       Include file:  Device\B21\Source\Config\FlConfig.h
       Source file:   Device\B21\Source\ARM\startup_SP49.s
+      Source file:   Device\B21\Source\system_SP49.c
 
    * Component: Infineon::Library:ROMLib:1.8.0
-      Source file:   ROMLib\B21\V1_8\Include\Com_Fl_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Com_Math_ext.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_RF.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_State_SM.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_State.h
       Source file:   ROMLib\B21\V1_8\Include\Com_MEIF_ext.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Fl.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_LF.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Fl_ext.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Math.h
+      Library file:  ROMLib\B21\V1_8\Source\SP49_Library.lib
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Meas_SM.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Math_SM.h
-      Source file:   ROMLib\B21\V1_8\Include\Com_Misc_ext.h
-      Library file:  ROMLib\B21\V1_8\Source\SP49_Library.lib
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Calib.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Diag.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Meas.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Serv.h
-      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_LF.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_Adv.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Fl.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Calib.h
       Source file:   ROMLib\B21\V1_8\Include\Lib_ROM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_State.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_RF.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_State_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp.h
+      Source file:   ROMLib\B21\V1_8\Include\Com_Misc_ext.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Comp_SM.h
+      Source file:   ROMLib\B21\V1_8\Include\Lib_Diag_SM.h
 Build Time Elapsed:  00:00:02
 </pre>
 </body>
